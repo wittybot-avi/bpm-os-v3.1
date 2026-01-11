@@ -149,12 +149,12 @@ export const Procurement: React.FC = () => {
           </div>
           <div className="overflow-y-auto flex-1 p-0">
             <table className="w-full text-sm text-left">
-              <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 sticky top-0">
+              <thead className="bg-slate-50 text-slate-500 border-b border-slate-200 sticky top-0">
                 <tr>
-                  <th className="px-4 py-2">Supplier Name</th>
-                  <th className="px-4 py-2">Type</th>
-                  <th className="px-4 py-2">Status</th>
-                  <th className="px-4 py-2">Region</th>
+                  <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Supplier Name</th>
+                  <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Type</th>
+                  <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Status</th>
+                  <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Region</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">

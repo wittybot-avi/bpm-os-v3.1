@@ -207,20 +207,20 @@ export const PackagingAggregation: React.FC = () => {
               </h3>
               <div className="border border-slate-200 rounded-lg overflow-hidden">
                 <table className="w-full text-sm text-left">
-                    <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200">
+                    <thead className="bg-slate-50 text-slate-500 border-b border-slate-200">
                         <tr>
-                            <th className="px-4 py-2">Item ID</th>
-                            <th className="px-4 py-2">SKU</th>
-                            <th className="px-4 py-2">Status</th>
+                            <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Item ID</th>
+                            <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">SKU</th>
+                            <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Status</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 bg-white">
                         {ACTIVE_UNIT.currentItems.map(item => (
                             <tr key={item.id}>
-                                <td className="px-4 py-2 font-mono">{item.packId}</td>
-                                <td className="px-4 py-2 text-slate-500">{item.sku}</td>
-                                <td className="px-4 py-2 text-green-600 flex items-center gap-1">
-                                    <CheckSquare size={12} />
+                                <td className="px-4 py-3 font-mono text-slate-800">{item.packId}</td>
+                                <td className="px-4 py-3 text-slate-500">{item.sku}</td>
+                                <td className="px-4 py-3 text-green-600 flex items-center gap-1">
+                                    <CheckSquare size={14} />
                                     <span className="text-xs font-bold">Verified</span>
                                 </td>
                             </tr>

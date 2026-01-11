@@ -121,28 +121,28 @@ export const SystemSetup: React.FC = () => {
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left">
-              <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200">
+              <thead className="bg-slate-50 text-slate-500 border-b border-slate-200">
                 <tr>
-                  <th className="px-4 py-2">Role</th>
-                  <th className="px-4 py-2">Access Level</th>
-                  <th className="px-4 py-2">Active Sessions</th>
+                  <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Role</th>
+                  <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Access Level</th>
+                  <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider text-right">Active Sessions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 <tr>
-                  <td className="px-4 py-2 text-slate-800">System Admin</td>
-                  <td className="px-4 py-2 text-slate-600">Full Access</td>
-                  <td className="px-4 py-2 font-mono">1</td>
+                  <td className="px-4 py-3 text-slate-800 font-medium">System Admin</td>
+                  <td className="px-4 py-3 text-slate-600">Full Access</td>
+                  <td className="px-4 py-3 font-mono text-right">1</td>
                 </tr>
                  <tr>
-                  <td className="px-4 py-2 text-slate-800">Management</td>
-                  <td className="px-4 py-2 text-slate-600">Read / Audit</td>
-                  <td className="px-4 py-2 font-mono">2</td>
+                  <td className="px-4 py-3 text-slate-800 font-medium">Management</td>
+                  <td className="px-4 py-3 text-slate-600">Read / Audit</td>
+                  <td className="px-4 py-3 font-mono text-right">2</td>
                 </tr>
                  <tr>
-                  <td className="px-4 py-2 text-slate-800">Operator</td>
-                  <td className="px-4 py-2 text-slate-600">Execution Only</td>
-                  <td className="px-4 py-2 font-mono">14</td>
+                  <td className="px-4 py-3 text-slate-800 font-medium">Operator</td>
+                  <td className="px-4 py-3 text-slate-600">Execution Only</td>
+                  <td className="px-4 py-3 font-mono text-right">14</td>
                 </tr>
               </tbody>
             </table>

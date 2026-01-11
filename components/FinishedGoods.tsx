@@ -151,11 +151,11 @@ export const FinishedGoods: React.FC = () => {
           
           <div className="overflow-y-auto flex-1 p-0">
              <table className="w-full text-sm text-left">
-               <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 sticky top-0 z-10">
+               <thead className="bg-slate-50 text-slate-500 border-b border-slate-200 sticky top-0 z-10">
                  <tr>
-                   <th className="px-4 py-3">Pack ID / SKU</th>
-                   <th className="px-4 py-3">Location</th>
-                   <th className="px-4 py-3">Status</th>
+                   <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Pack ID / SKU</th>
+                   <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Location</th>
+                   <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Status</th>
                  </tr>
                </thead>
                <tbody className="divide-y divide-slate-100">
@@ -167,17 +167,17 @@ export const FinishedGoods: React.FC = () => {
                        selectedItem.id === item.id ? 'bg-brand-50' : 'hover:bg-slate-50'
                      }`}
                    >
-                     <td className="px-4 py-3">
+                     <td className="px-4 py-3 align-top">
                        <div className="font-bold text-slate-800">{item.packId}</div>
-                       <div className="text-[10px] text-slate-400 truncate w-32">{item.sku}</div>
+                       <div className="text-[10px] text-slate-400 truncate w-32 mt-0.5">{item.sku}</div>
                      </td>
-                     <td className="px-4 py-3">
+                     <td className="px-4 py-3 align-top">
                         <div className="flex items-center gap-1 text-slate-600">
-                            <MapPin size={12} className="text-slate-400" />
-                            <span className="truncate w-24" title={item.location}>{item.location}</span>
+                            <MapPin size={12} className="text-slate-400 shrink-0" />
+                            <span className="truncate w-24 text-xs" title={item.location}>{item.location}</span>
                         </div>
                      </td>
-                     <td className="px-4 py-3">
+                     <td className="px-4 py-3 align-top">
                         <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${
                           item.status === 'Available' ? 'bg-green-100 text-green-700' :
                           item.status === 'Reserved' ? 'bg-amber-100 text-amber-700' :

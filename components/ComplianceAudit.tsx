@@ -138,7 +138,7 @@ export const ComplianceAudit: React.FC = () => {
                Risk Registry
              </h3>
           </div>
-          <div className="p-2">
+          <div className="p-0">
              {RISK_LIST.length === 0 ? (
                <div className="flex flex-col items-center justify-center py-8 px-4 text-center">
                  <div className="bg-slate-50 p-3 rounded-full mb-3">
@@ -149,19 +149,19 @@ export const ComplianceAudit: React.FC = () => {
                </div>
              ) : (
                <table className="w-full text-sm text-left">
-                 <thead className="bg-slate-50 text-slate-500 font-semibold">
+                 <thead className="bg-slate-50 text-slate-500 border-b border-slate-200">
                    <tr>
-                     <th className="px-3 py-2">ID</th>
-                     <th className="px-3 py-2">Issue</th>
-                     <th className="px-3 py-2">Severity</th>
+                     <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">ID</th>
+                     <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Issue</th>
+                     <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Severity</th>
                    </tr>
                  </thead>
                  <tbody className="divide-y divide-slate-100">
                    {RISK_LIST.map((risk) => (
                      <tr key={risk.id} className="hover:bg-slate-50">
-                       <td className="px-3 py-2 font-mono text-xs">{risk.packId}</td>
-                       <td className="px-3 py-2">{risk.issue}</td>
-                       <td className="px-3 py-2">
+                       <td className="px-4 py-3 font-mono text-xs text-slate-600">{risk.packId}</td>
+                       <td className="px-4 py-3 text-slate-800">{risk.issue}</td>
+                       <td className="px-4 py-3">
                           <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
                             risk.severity === 'High' ? 'bg-red-100 text-red-700' :
                             risk.severity === 'Medium' ? 'bg-amber-100 text-amber-700' :

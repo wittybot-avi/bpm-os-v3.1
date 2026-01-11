@@ -155,11 +155,11 @@ export const BatteryRegistry: React.FC = () => {
           
           <div className="overflow-y-auto flex-1 p-0">
              <table className="w-full text-sm text-left">
-               <thead className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200 sticky top-0 z-10">
+               <thead className="bg-slate-50 text-slate-500 border-b border-slate-200 sticky top-0 z-10">
                  <tr>
-                   <th className="px-4 py-3">Pack ID</th>
-                   <th className="px-4 py-3">SKU</th>
-                   <th className="px-4 py-3">Status</th>
+                   <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Pack ID</th>
+                   <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">SKU</th>
+                   <th className="px-4 py-3 text-xs font-bold uppercase tracking-wider">Status</th>
                  </tr>
                </thead>
                <tbody className="divide-y divide-slate-100">
@@ -171,12 +171,12 @@ export const BatteryRegistry: React.FC = () => {
                        selectedPack.id === pack.id ? 'bg-brand-50' : 'hover:bg-slate-50'
                      }`}
                    >
-                     <td className="px-4 py-3">
+                     <td className="px-4 py-3 align-top">
                        <div className="font-bold text-slate-800">{pack.packId}</div>
-                       <div className="text-[10px] text-slate-400">{pack.mfgDate}</div>
+                       <div className="text-[10px] text-slate-400 font-mono mt-0.5">{pack.mfgDate}</div>
                      </td>
-                     <td className="px-4 py-3 text-slate-600">{pack.skuCode}</td>
-                     <td className="px-4 py-3">
+                     <td className="px-4 py-3 text-slate-600 align-top">{pack.skuCode}</td>
+                     <td className="px-4 py-3 align-top">
                         <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${
                           pack.status === 'Approved' ? 'bg-green-100 text-green-700' :
                           pack.status === 'Dispatched' ? 'bg-slate-100 text-slate-600' :
