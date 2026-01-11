@@ -6,6 +6,7 @@ import { SystemSetup } from './components/SystemSetup';
 import { SKUBlueprint } from './components/SKUBlueprint';
 import { Procurement } from './components/Procurement';
 import { InboundReceipt } from './components/InboundReceipt';
+import { BatchPlanning } from './components/BatchPlanning';
 import { UserRole, UserContextType, UserContext, NavView } from './types';
 import { canAccess } from './utils/rbac';
 
@@ -37,6 +38,7 @@ const App: React.FC = () => {
           {currentView === 'sku_blueprint' && <SKUBlueprint />}
           {currentView === 'procurement' && <Procurement />}
           {currentView === 'inbound_receipt' && <InboundReceipt />}
+          {currentView === 'batch_planning' && <BatchPlanning />}
         </Layout>
       </UserContext.Provider>
     </ErrorBoundary>

@@ -9,7 +9,8 @@ export enum UserRole {
   QA_ENGINEER = 'QA Engineer',
   SUPERVISOR = 'Supervisor',
   MANAGEMENT = 'Management / Auditor',
-  PROCUREMENT = 'Commercial / Procurement'
+  PROCUREMENT = 'Commercial / Procurement',
+  PLANNER = 'Production Planner'
 }
 
 // User Context Interface
@@ -34,8 +35,8 @@ export const UserContext = createContext<UserContextType>({
 
 // App Constants
 export const APP_VERSION = 'V3.1';
-export const PATCH_ID = 'PP-014';
+export const PATCH_ID = 'PP-015';
 export const APP_NAME = 'BPM-OS';
 
 // Navigation Views
-export type NavView = 'dashboard' | 'system_setup' | 'sku_blueprint' | 'procurement' | 'inbound_receipt';
+export type NavView = 'dashboard' | 'system_setup' | 'sku_blueprint' | 'procurement' | 'inbound_receipt' | 'batch_planning';
