@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { Dashboard } from './components/Dashboard';
 import { SystemSetup } from './components/SystemSetup';
 import { SKUBlueprint } from './components/SKUBlueprint';
+import { Procurement } from './components/Procurement';
 import { UserRole, UserContextType, UserContext, NavView } from './types';
 import { canAccess } from './utils/rbac';
 
@@ -33,6 +34,7 @@ const App: React.FC = () => {
           {currentView === 'dashboard' && <Dashboard />}
           {currentView === 'system_setup' && <SystemSetup />}
           {currentView === 'sku_blueprint' && <SKUBlueprint />}
+          {currentView === 'procurement' && <Procurement />}
         </Layout>
       </UserContext.Provider>
     </ErrorBoundary>

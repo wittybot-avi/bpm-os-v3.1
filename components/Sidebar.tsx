@@ -9,7 +9,8 @@ import {
   BarChart2, 
   FileText,
   Settings,
-  Cpu
+  Cpu,
+  ShoppingCart
 } from 'lucide-react';
 
 interface NavItemProps {
@@ -50,6 +51,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
     role === UserRole.ENGINEERING || 
     role === UserRole.MANAGEMENT;
 
+  // RBAC: Procurement for Admin, Commercial, Management
+  const canSeeProcurement = 
+    role === UserRole.SYSTEM_ADMIN || 
+    role === UserRole.PROCUREMENT || 
+    role === UserRole.MANAGEMENT;
+
   return (
     <aside className="w-64 bg-white border-r border-industrial-border h-full flex flex-col shrink-0">
       <div className="p-4">
@@ -77,6 +84,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
               label="SKU & Blueprint (S1)" 
               active={currentView === 'sku_blueprint'} 
               onClick={() => onNavigate('sku_blueprint')} 
+            />
+          )}
+          {canSeeProcurement && (
+             <NavItem 
+              icon={ShoppingCart} 
+              label="Procurement (S2)" 
+              active={currentView === 'procurement'} 
+              onClick={() => onNavigate('procurement')} 
             />
           )}
           <NavItem icon={Activity} label="Live Status" />
