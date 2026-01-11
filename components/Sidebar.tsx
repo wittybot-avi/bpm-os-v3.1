@@ -12,7 +12,8 @@ import {
   Cpu,
   ShoppingCart,
   Truck,
-  CalendarClock
+  CalendarClock,
+  Wrench
 } from 'lucide-react';
 
 interface NavItemProps {
@@ -69,6 +70,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
     role === UserRole.SUPERVISOR || 
     role === UserRole.MANAGEMENT;
 
+  const canSeeModuleAssembly = 
+    role === UserRole.SYSTEM_ADMIN ||
+    role === UserRole.OPERATOR ||
+    role === UserRole.SUPERVISOR ||
+    role === UserRole.MANAGEMENT;
+
   return (
     <aside className="w-64 bg-white border-r border-industrial-border h-full flex flex-col shrink-0">
       <div className="p-4">
@@ -120,6 +127,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
               label="Batch Planning (S4)" 
               active={currentView === 'batch_planning'} 
               onClick={() => onNavigate('batch_planning')} 
+            />
+          )}
+          {canSeeModuleAssembly && (
+             <NavItem 
+              icon={Wrench} 
+              label="Module Assembly (S5)" 
+              active={currentView === 'module_assembly'} 
+              onClick={() => onNavigate('module_assembly')} 
             />
           )}
           <NavItem icon={Activity} label="Live Status" />

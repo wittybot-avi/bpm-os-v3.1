@@ -13,4 +13,5 @@
 | **PP-012** | Governance Patch | Governance Normalization | **STABLE** | Governance normalization — constants extracted to RULEBOOK. | 2026-01-11 (IST) |
 | **PP-013** | Primary Patch | S2 Commercial Procurement | **STABLE** | Added S2 Procurement screen, Supplier Master, and Commercial terms UX. | 2026-01-11 (IST) |
 | **PP-014** | Primary Patch | S3 Inbound Receipt & Serialization | **STABLE** | Added Inbound Shipment List, Serialization Panel, and QC indicators. | 2026-01-11 (IST) |
-| **PP-015** | Primary Patch | S4 Manufacturing Batch Planning | **IN-PROGRESS** | Added Batch Schedule List, Planning Details, and Line Readiness visualization. | 2026-01-11 21:30 (IST) |
+| **PP-015** | Primary Patch | S4 Manufacturing Batch Planning | **STABLE** | Added Batch Schedule List, Planning Details, and Line Readiness visualization. | 2026-01-11 21:30 (IST) |
+| **PP-020** | Primary Patch | S5 Module Assembly Workstation | **IN-PROGRESS** | Added Operator Interface, Active Batch Banner, and Task Checklist. | 2026-01-11 21:45 (IST) |
