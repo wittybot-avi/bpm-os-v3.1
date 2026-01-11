@@ -21,7 +21,8 @@ import {
   PackageCheck,
   Package,
   Stamp,
-  LogOut
+  LogOut,
+  LifeBuoy
 } from 'lucide-react';
 
 interface NavItemProps {
@@ -138,6 +139,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
     role === UserRole.LOGISTICS ||
     role === UserRole.STORES ||
     role === UserRole.SUPERVISOR ||
+    role === UserRole.MANAGEMENT;
+
+  const canSeeService = 
+    role === UserRole.SYSTEM_ADMIN ||
+    role === UserRole.SERVICE ||
     role === UserRole.MANAGEMENT;
 
   return (
@@ -271,6 +277,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
               label="Dispatch Exec (S14)" 
               active={currentView === 'dispatch_execution'} 
               onClick={() => onNavigate('dispatch_execution')} 
+            />
+          )}
+          {canSeeService && (
+            <NavItem 
+              icon={LifeBuoy} 
+              label="Service & Warranty (S15)" 
+              active={currentView === 'service_warranty'} 
+              onClick={() => onNavigate('service_warranty')} 
             />
           )}
           <NavItem icon={Activity} label="Live Status" />
