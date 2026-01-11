@@ -9,4 +9,5 @@
 | **BP-004** | Bridge Patch | Governance Hardening | **STABLE** | Enforced Date Authority & Unified Patch ID. | 2026-01-11 (IST) |
 | **BP-005** | Bridge Patch | Date Protocol Lock | **STABLE** | Implemented Human-Injected Date Authority Rule. | 2026-01-11 (IST) |
 | **PP-010** | Primary Patch | S0 System Setup & Governance | **STABLE** | Added System Setup screen, Nav routing, RBAC enforcement. | 2026-01-11 (IST) |
-| **PP-011** | Primary Patch | S1 SKU & Regulatory Blueprint | **IN-PROGRESS** | Added SKU Master List, Blueprint Detail, and Regulatory Flags. | 2026-01-11 (IST) |
+| **PP-011** | Primary Patch | S1 SKU & Regulatory Blueprint | **STABLE** | Added SKU Master List, Blueprint Detail, and Regulatory Flags. | 2026-01-11 (IST) |
+| **PP-012** | Governance Patch | Governance Normalization | **IN-PROGRESS** | Governance normalization — constants extracted to RULEBOOK. | 2026-01-11 (IST) |
