@@ -31,4 +31,5 @@
 | **PP-062** | UX Patch | Header & Breadcrumb Standardization | **STABLE** | Unified page headers, typography, and breadcrumbs. | 2026-01-11 23:15 (IST) |
 | **PP-063** | UX Patch | Empty State & Zero-Data Patterns | **STABLE** | Standardized messaging for empty states and demo modes. | 2026-01-11 23:30 (IST) |
 | **PP-064** | UX Patch | Status Severity & Visual Normalization | **STABLE** | Enforced canonical status colors (Green/Amber/Red/Slate) across all screens. | 2026-01-11 23:45 (IST) |
-| **PP-065** | UX Patch | Table Readability & Density | **IN-PROGRESS** | Standardized table headers, spacing, and column alignment. | 2026-01-12 00:00 (IST) |
+| **PP-065** | UX Patch | Table Readability & Density | **STABLE** | Standardized table headers, spacing, and column alignment. | 2026-01-12 00:00 (IST) |
+| **PP-090** | Hardening Patch | System Dashboard & Narrative Framing | **IN-PROGRESS** | Introduced read-only System Dashboard and aligned lifecycle terminology. | 2026-01-12 00:15 (IST) |

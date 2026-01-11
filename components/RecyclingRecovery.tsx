@@ -87,7 +87,7 @@ export const RecyclingRecovery: React.FC = () => {
       <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
            <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
-              Field Ops <span className="text-slate-300">/</span> Recovery
+              Lifecycle <span className="text-slate-300">/</span> Recovery
            </div>
            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
              <Recycle className="text-brand-600" size={24} />

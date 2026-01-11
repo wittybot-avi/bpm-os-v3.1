@@ -360,11 +360,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
           </div>
         )}
 
-        {/* Group F: Field & Circular Lifecycle */}
+        {/* Group F: Traceability & Lifecycle */}
         {showLifecycle && (
           <div className="mt-6">
             <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 px-4">
-              Field & Lifecycle
+              Traceability & Lifecycle
             </div>
             <nav className="flex flex-col space-y-1">
               {canSeeService && (
