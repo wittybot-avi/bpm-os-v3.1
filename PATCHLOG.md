@@ -22,4 +22,5 @@
 | **PP-025** | Primary Patch | S10 BMS Provisioning | **STABLE** | Added BMS Identity Binding, Firmware Selection, and Provisioning Controls. | 2026-01-11 23:00 (IST) |
 | **PP-030** | Primary Patch | S11 Finished Goods Inventory | **STABLE** | Added Warehouse Stock List, Location Detail, and Dispatch Actions. | 2026-01-11 23:15 (IST) |
 | **PP-031** | Primary Patch | S12 Packaging & Aggregation | **STABLE** | Added Packaging Workstation, Eligible Queue, and Unit Visualization. | 2026-01-11 23:30 (IST) |
-| **PP-032** | Primary Patch | S13 Dispatch Authorization | **IN-PROGRESS** | Added Dispatch Queue, Review Panel, and Gate Pass Controls. | 2026-01-11 23:45 (IST) |
+| **PP-032** | Primary Patch | S13 Dispatch Authorization | **STABLE** | Added Dispatch Queue, Review Panel, and Gate Pass Controls. | 2026-01-11 23:45 (IST) |
+| **PP-033** | Primary Patch | S14 Dispatch Execution | **IN-PROGRESS** | Added Execution Queue, Handover Panel, and Custody Transfer Controls. | 2026-01-12 00:00 (IST) |

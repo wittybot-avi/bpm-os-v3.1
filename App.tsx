@@ -16,6 +16,7 @@ import { BMSProvisioning } from './components/BMSProvisioning';
 import { FinishedGoods } from './components/FinishedGoods';
 import { PackagingAggregation } from './components/PackagingAggregation';
 import { DispatchAuthorization } from './components/DispatchAuthorization';
+import { DispatchExecution } from './components/DispatchExecution';
 import { UserRole, UserContextType, UserContext, NavView } from './types';
 import { canAccess } from './utils/rbac';
 
@@ -57,6 +58,7 @@ const App: React.FC = () => {
           {currentView === 'finished_goods' && <FinishedGoods />}
           {currentView === 'packaging_aggregation' && <PackagingAggregation />}
           {currentView === 'dispatch_authorization' && <DispatchAuthorization />}
+          {currentView === 'dispatch_execution' && <DispatchExecution />}
         </Layout>
       </UserContext.Provider>
     </ErrorBoundary>
