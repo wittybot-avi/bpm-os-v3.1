@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Activity } from 'lucide-react';
 
 export const Dashboard: React.FC = () => {
   return (
@@ -17,15 +17,18 @@ export const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content Area / Canvas */}
+      {/* Main Content Area / Canvas - Type A Empty State */}
       <div className="flex-1 bg-slate-50 rounded-lg border-2 border-dashed border-slate-200 flex flex-col items-center justify-center p-12 text-center">
-        <div className="max-w-md space-y-4">
-          <h3 className="text-lg font-semibold text-slate-700">Operational Canvas Empty</h3>
-          <p className="text-slate-500 text-sm">
-            This area will be populated with specific SOP screens and manufacturing workflows in upcoming patches.
+        <div className="max-w-md flex flex-col items-center">
+          <div className="bg-slate-100 p-4 rounded-full mb-4">
+            <Activity className="text-slate-300" size={32} />
+          </div>
+          <h3 className="text-lg font-semibold text-slate-700 mb-2">No operational data available</h3>
+          <p className="text-slate-500 text-sm mb-4">
+            This screen will populate when the corresponding SOP stage is active.
           </p>
-          <div className="text-xs text-slate-400 mt-4">
-            Consult the System HUD (bottom right) for governance metadata.
+          <div className="text-xs font-mono text-amber-600 bg-amber-50 px-3 py-1 rounded-full border border-amber-100">
+            Currently running in Frontend-Only Demo Mode.
           </div>
         </div>
       </div>

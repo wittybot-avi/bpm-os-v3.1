@@ -248,11 +248,17 @@ export const InboundReceipt: React.FC = () => {
                   )}
                </div>
                
-               {/* Serial List Visualization */}
+               {/* Serial List Visualization - Type A Empty State Applied */}
                <div className="max-h-64 overflow-y-auto bg-slate-100 p-4">
                   {selectedShipment.status === 'Pending' ? (
-                    <div className="text-center text-slate-400 py-8 text-sm italic">
-                      Receipt must be completed before serialization.
+                    <div className="flex flex-col items-center justify-center py-8 px-4 text-center">
+                      <div className="bg-white p-3 rounded-full mb-3 shadow-sm border border-slate-200">
+                        <Barcode className="text-slate-300" size={24} />
+                      </div>
+                      <h3 className="text-slate-700 font-medium text-sm mb-1">No operational data available</h3>
+                      <p className="text-slate-500 text-xs mb-3 max-w-xs">
+                        Serialization data will populate when receipt is verified.
+                      </p>
                     </div>
                   ) : (
                     <div className="grid grid-cols-3 gap-3">

@@ -27,4 +27,6 @@
 | **PP-040** | Primary Patch | S15 Service & Warranty | **STABLE** | Added Service Dashboard, Telemetry Preview, and Warranty Status. | 2026-01-12 00:15 (IST) |
 | **PP-041** | Primary Patch | S16 Recycling & Recovery | **STABLE** | Added EOL Intake Queue, Sorting Panel, and Sidebar Scroll Fix. | 2026-01-11 22:35 (IST) |
 | **PP-050** | Primary Patch | S17 Compliance & Audit | **STABLE** | Added Compliance Dashboard, Regulatory Checks, and Audit Trail. | 2026-01-11 22:50 (IST) |
-| **PP-061** | UX Patch | Sidebar Grouping & Cleanup | **IN-PROGRESS** | Structured sidebar navigation into operational groups. | 2026-01-11 23:00 (IST) |
+| **PP-061** | UX Patch | Sidebar Grouping & Cleanup | **STABLE** | Structured sidebar navigation into operational groups. | 2026-01-11 23:00 (IST) |
+| **PP-062** | UX Patch | Header & Breadcrumb Standardization | **STABLE** | Unified page headers, typography, and breadcrumbs. | 2026-01-11 23:15 (IST) |
+| **PP-063** | UX Patch | Empty State & Zero-Data Patterns | **IN-PROGRESS** | Standardized messaging for empty states and demo modes. | 2026-01-11 23:30 (IST) |

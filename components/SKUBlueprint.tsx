@@ -10,7 +10,9 @@ import {
   AlertCircle,
   FileBadge,
   Globe,
-  Settings
+  Settings,
+  Box,
+  Layers
 } from 'lucide-react';
 
 // Mock Data Types
@@ -132,32 +134,42 @@ export const SKUBlueprint: React.FC = () => {
             <span className="text-xs text-slate-400">{MOCK_SKUS.length} Configurations Found</span>
           </div>
           <div className="overflow-y-auto flex-1 p-2 space-y-2">
-            {MOCK_SKUS.map((sku) => (
-              <div 
-                key={sku.id}
-                onClick={() => setSelectedSku(sku)}
-                className={`p-3 rounded-md cursor-pointer border transition-all ${
-                  selectedSku.id === sku.id 
-                    ? 'bg-brand-50 border-brand-200 shadow-sm' 
-                    : 'bg-white border-transparent hover:bg-slate-50 hover:border-slate-200'
-                }`}
-              >
-                <div className="flex justify-between items-start mb-1">
-                  <span className="font-bold text-slate-800 text-sm">{sku.code}</span>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
-                    sku.status === 'Approved' ? 'bg-green-100 text-green-700' : 
-                    sku.status === 'Draft' ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500'
-                  }`}>
-                    {sku.status}
-                  </span>
+            {MOCK_SKUS.length === 0 ? (
+              <div className="flex flex-col items-center justify-center py-8 px-4 text-center">
+                <div className="bg-slate-50 p-3 rounded-full mb-3">
+                  <Box className="text-slate-300" size={20} />
                 </div>
-                <div className="text-xs text-slate-500 mb-2">{sku.name}</div>
-                <div className="flex items-center gap-2 text-[10px] text-slate-400 font-mono">
-                  <span className="bg-slate-100 px-1 rounded">{sku.chemistry}</span>
-                  <span className="bg-slate-100 px-1 rounded">{sku.voltage}</span>
-                </div>
+                <h3 className="text-slate-700 font-medium text-sm mb-1">Nothing to display yet</h3>
+                <p className="text-slate-500 text-xs">Records will appear here once created or synced.</p>
               </div>
-            ))}
+            ) : (
+              MOCK_SKUS.map((sku) => (
+                <div 
+                  key={sku.id}
+                  onClick={() => setSelectedSku(sku)}
+                  className={`p-3 rounded-md cursor-pointer border transition-all ${
+                    selectedSku.id === sku.id 
+                      ? 'bg-brand-50 border-brand-200 shadow-sm' 
+                      : 'bg-white border-transparent hover:bg-slate-50 hover:border-slate-200'
+                  }`}
+                >
+                  <div className="flex justify-between items-start mb-1">
+                    <span className="font-bold text-slate-800 text-sm">{sku.code}</span>
+                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
+                      sku.status === 'Approved' ? 'bg-green-100 text-green-700' : 
+                      sku.status === 'Draft' ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500'
+                    }`}>
+                      {sku.status}
+                    </span>
+                  </div>
+                  <div className="text-xs text-slate-500 mb-2">{sku.name}</div>
+                  <div className="flex items-center gap-2 text-[10px] text-slate-400 font-mono">
+                    <span className="bg-slate-100 px-1 rounded">{sku.chemistry}</span>
+                    <span className="bg-slate-100 px-1 rounded">{sku.voltage}</span>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
 
@@ -224,8 +236,14 @@ export const SKUBlueprint: React.FC = () => {
                    <div className="text-xs text-slate-400 mb-1">Cooling Strategy</div>
                    <div className="font-semibold text-slate-800">Liquid Active Cooling</div>
                 </div>
-                <div className="p-3 bg-slate-50 rounded border border-slate-100 col-span-2 flex justify-center items-center h-24 border-dashed border-slate-300 text-slate-400 text-sm">
-                   Mechanical CAD Preview Unavailable in Demo
+                
+                {/* Type B Empty State for Missing Content */}
+                <div className="p-3 bg-slate-50 rounded border border-slate-100 col-span-2 flex flex-col justify-center items-center h-32 border-dashed border-slate-300">
+                   <div className="bg-slate-100 p-2 rounded-full mb-2">
+                      <Layers className="text-slate-300" size={20} />
+                   </div>
+                   <h3 className="text-sm font-medium text-slate-600 mb-1">Nothing to display yet</h3>
+                   <p className="text-xs text-slate-400">Mechanical CAD preview requires backend integration.</p>
                 </div>
               </div>
             </section>

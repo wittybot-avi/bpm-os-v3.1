@@ -139,32 +139,42 @@ export const ComplianceAudit: React.FC = () => {
              </h3>
           </div>
           <div className="p-2">
-             <table className="w-full text-sm text-left">
-               <thead className="bg-slate-50 text-slate-500 font-semibold">
-                 <tr>
-                   <th className="px-3 py-2">ID</th>
-                   <th className="px-3 py-2">Issue</th>
-                   <th className="px-3 py-2">Severity</th>
-                 </tr>
-               </thead>
-               <tbody className="divide-y divide-slate-100">
-                 {RISK_LIST.map((risk) => (
-                   <tr key={risk.id} className="hover:bg-slate-50">
-                     <td className="px-3 py-2 font-mono text-xs">{risk.packId}</td>
-                     <td className="px-3 py-2">{risk.issue}</td>
-                     <td className="px-3 py-2">
-                        <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
-                          risk.severity === 'High' ? 'bg-red-100 text-red-700' :
-                          risk.severity === 'Medium' ? 'bg-amber-100 text-amber-700' :
-                          'bg-blue-100 text-blue-700'
-                        }`}>
-                          {risk.severity}
-                        </span>
-                     </td>
+             {RISK_LIST.length === 0 ? (
+               <div className="flex flex-col items-center justify-center py-8 px-4 text-center">
+                 <div className="bg-slate-50 p-3 rounded-full mb-3">
+                   <ShieldCheck className="text-slate-300" size={24} />
+                 </div>
+                 <h3 className="text-slate-700 font-medium text-sm mb-1">No records available</h3>
+                 <p className="text-slate-500 text-xs max-w-xs">Audit and compliance data will populate as lifecycle events are recorded.</p>
+               </div>
+             ) : (
+               <table className="w-full text-sm text-left">
+                 <thead className="bg-slate-50 text-slate-500 font-semibold">
+                   <tr>
+                     <th className="px-3 py-2">ID</th>
+                     <th className="px-3 py-2">Issue</th>
+                     <th className="px-3 py-2">Severity</th>
                    </tr>
-                 ))}
-               </tbody>
-             </table>
+                 </thead>
+                 <tbody className="divide-y divide-slate-100">
+                   {RISK_LIST.map((risk) => (
+                     <tr key={risk.id} className="hover:bg-slate-50">
+                       <td className="px-3 py-2 font-mono text-xs">{risk.packId}</td>
+                       <td className="px-3 py-2">{risk.issue}</td>
+                       <td className="px-3 py-2">
+                          <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
+                            risk.severity === 'High' ? 'bg-red-100 text-red-700' :
+                            risk.severity === 'Medium' ? 'bg-amber-100 text-amber-700' :
+                            'bg-blue-100 text-blue-700'
+                          }`}>
+                            {risk.severity}
+                          </span>
+                       </td>
+                     </tr>
+                   ))}
+                 </tbody>
+               </table>
+             )}
           </div>
         </div>
 
