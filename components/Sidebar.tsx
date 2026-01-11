@@ -13,7 +13,8 @@ import {
   ShoppingCart,
   Truck,
   CalendarClock,
-  Wrench
+  Wrench,
+  ClipboardCheck
 } from 'lucide-react';
 
 interface NavItemProps {
@@ -76,6 +77,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
     role === UserRole.SUPERVISOR ||
     role === UserRole.MANAGEMENT;
 
+  const canSeeModuleQA = 
+    role === UserRole.SYSTEM_ADMIN ||
+    role === UserRole.QA_ENGINEER ||
+    role === UserRole.SUPERVISOR ||
+    role === UserRole.MANAGEMENT;
+
   return (
     <aside className="w-64 bg-white border-r border-industrial-border h-full flex flex-col shrink-0">
       <div className="p-4">
@@ -135,6 +142,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
               label="Module Assembly (S5)" 
               active={currentView === 'module_assembly'} 
               onClick={() => onNavigate('module_assembly')} 
+            />
+          )}
+          {canSeeModuleQA && (
+             <NavItem 
+              icon={ClipboardCheck} 
+              label="Module QA (S6)" 
+              active={currentView === 'module_qa'} 
+              onClick={() => onNavigate('module_qa')} 
             />
           )}
           <NavItem icon={Activity} label="Live Status" />

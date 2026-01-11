@@ -35,8 +35,8 @@ export const UserContext = createContext<UserContextType>({
 
 // App Constants
 export const APP_VERSION = 'V3.1';
-export const PATCH_ID = 'PP-020';
+export const PATCH_ID = 'PP-021';
 export const APP_NAME = 'BPM-OS';
 
 // Navigation Views
-export type NavView = 'dashboard' | 'system_setup' | 'sku_blueprint' | 'procurement' | 'inbound_receipt' | 'batch_planning' | 'module_assembly';
+export type NavView = 'dashboard' | 'system_setup' | 'sku_blueprint' | 'procurement' | 'inbound_receipt' | 'batch_planning' | 'module_assembly' | 'module_qa';

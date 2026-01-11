@@ -8,6 +8,7 @@ import { Procurement } from './components/Procurement';
 import { InboundReceipt } from './components/InboundReceipt';
 import { BatchPlanning } from './components/BatchPlanning';
 import { ModuleAssembly } from './components/ModuleAssembly';
+import { ModuleQA } from './components/ModuleQA';
 import { UserRole, UserContextType, UserContext, NavView } from './types';
 import { canAccess } from './utils/rbac';
 
@@ -41,6 +42,7 @@ const App: React.FC = () => {
           {currentView === 'inbound_receipt' && <InboundReceipt />}
           {currentView === 'batch_planning' && <BatchPlanning />}
           {currentView === 'module_assembly' && <ModuleAssembly />}
+          {currentView === 'module_qa' && <ModuleQA />}
         </Layout>
       </UserContext.Provider>
     </ErrorBoundary>
