@@ -19,7 +19,8 @@ import {
   FileCheck,
   Database,
   PackageCheck,
-  Package
+  Package,
+  Stamp
 } from 'lucide-react';
 
 interface NavItemProps {
@@ -121,6 +122,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
   const canSeePackaging = 
     role === UserRole.SYSTEM_ADMIN ||
     role === UserRole.STORES ||
+    role === UserRole.LOGISTICS ||
+    role === UserRole.SUPERVISOR ||
+    role === UserRole.MANAGEMENT;
+
+  const canSeeDispatchAuth = 
+    role === UserRole.SYSTEM_ADMIN ||
     role === UserRole.LOGISTICS ||
     role === UserRole.SUPERVISOR ||
     role === UserRole.MANAGEMENT;
@@ -240,6 +247,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
               label="Packaging (S12)" 
               active={currentView === 'packaging_aggregation'} 
               onClick={() => onNavigate('packaging_aggregation')} 
+            />
+          )}
+          {canSeeDispatchAuth && (
+            <NavItem 
+              icon={Stamp} 
+              label="Dispatch Auth (S13)" 
+              active={currentView === 'dispatch_authorization'} 
+              onClick={() => onNavigate('dispatch_authorization')} 
             />
           )}
           <NavItem icon={Activity} label="Live Status" />

@@ -21,4 +21,5 @@
 | **PP-024** | Primary Patch | S9 Battery Registry | **STABLE** | Added Read-Only System Registry, Digital Twin View, and Compliance Readiness. | 2026-01-11 22:45 (IST) |
 | **PP-025** | Primary Patch | S10 BMS Provisioning | **STABLE** | Added BMS Identity Binding, Firmware Selection, and Provisioning Controls. | 2026-01-11 23:00 (IST) |
 | **PP-030** | Primary Patch | S11 Finished Goods Inventory | **STABLE** | Added Warehouse Stock List, Location Detail, and Dispatch Actions. | 2026-01-11 23:15 (IST) |
-| **PP-031** | Primary Patch | S12 Packaging & Aggregation | **IN-PROGRESS** | Added Packaging Workstation, Eligible Queue, and Unit Visualization. | 2026-01-11 23:30 (IST) |
+| **PP-031** | Primary Patch | S12 Packaging & Aggregation | **STABLE** | Added Packaging Workstation, Eligible Queue, and Unit Visualization. | 2026-01-11 23:30 (IST) |
+| **PP-032** | Primary Patch | S13 Dispatch Authorization | **IN-PROGRESS** | Added Dispatch Queue, Review Panel, and Gate Pass Controls. | 2026-01-11 23:45 (IST) |
