@@ -170,7 +170,7 @@ export const Procurement: React.FC = () => {
                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${
                         sup.status === 'Approved' ? 'bg-green-100 text-green-700' :
                         sup.status === 'Conditional' ? 'bg-amber-100 text-amber-700' :
-                        'bg-slate-100 text-slate-500'
+                        'bg-amber-100 text-amber-700'
                       }`}>
                         {sup.status}
                       </span>
@@ -199,7 +199,7 @@ export const Procurement: React.FC = () => {
                      <span className="text-xs font-mono font-bold text-slate-500">{term.skuRef}</span>
                      <span className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase border ${
                        term.contractStatus === 'Active' ? 'bg-green-50 text-green-700 border-green-200' :
-                       term.contractStatus === 'Draft' ? 'bg-blue-50 text-blue-700 border-blue-200' :
+                       term.contractStatus === 'Draft' ? 'bg-slate-50 text-slate-600 border-slate-200' :
                        'bg-red-50 text-red-700 border-red-200'
                      }`}>
                        {term.contractStatus}

@@ -11,9 +11,9 @@ import {
   XCircle, 
   ClipboardList, 
   Stamp, 
-  FileText,
-  Search,
-  Scale
+  FileText, 
+  Search, 
+  Scale 
 } from 'lucide-react';
 
 // Mock Data Types
@@ -144,8 +144,8 @@ export const DispatchAuthorization: React.FC = () => {
                   <span className="font-bold text-slate-800 text-sm">{unit.unitId}</span>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
                     unit.status === 'Authorized' ? 'bg-green-100 text-green-700' :
-                    unit.status === 'On Hold' ? 'bg-amber-100 text-amber-700' :
-                    'bg-blue-100 text-blue-700'
+                    unit.status === 'On Hold' ? 'bg-red-100 text-red-700' :
+                    'bg-amber-100 text-amber-700'
                   }`}>
                     {unit.status}
                   </span>
@@ -180,7 +180,7 @@ export const DispatchAuthorization: React.FC = () => {
                 <div className="text-xs text-slate-500 uppercase font-bold">Logistics State</div>
                 <div className={`text-lg font-bold ${
                     selectedUnit.status === 'Authorized' ? 'text-green-600' :
-                    selectedUnit.status === 'On Hold' ? 'text-amber-600' : 'text-blue-600'
+                    selectedUnit.status === 'On Hold' ? 'text-red-600' : 'text-amber-600'
                 }`}>
                     {selectedUnit.status.toUpperCase()}
                 </div>

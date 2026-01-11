@@ -122,7 +122,10 @@ export const BMSProvisioning: React.FC = () => {
               >
                 <div className="flex justify-between items-start mb-1">
                   <span className="font-bold text-slate-800 text-sm">{pack.packId}</span>
-                  <span className="text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-bold uppercase">
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
+                    pack.status === 'Provisioned' ? 'bg-green-100 text-green-700' : 
+                    'bg-amber-100 text-amber-700'
+                  }`}>
                     {pack.status}
                   </span>
                 </div>

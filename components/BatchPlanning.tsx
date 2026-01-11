@@ -6,11 +6,11 @@ import {
   Factory, 
   Lock, 
   PlayCircle, 
-  Plus,
-  CalendarDays,
-  MoreHorizontal,
-  Timer,
-  Boxes
+  Plus, 
+  CalendarDays, 
+  MoreHorizontal, 
+  Timer, 
+  Boxes 
 } from 'lucide-react';
 
 // Mock Data Types
@@ -147,9 +147,9 @@ export const BatchPlanning: React.FC = () => {
                 <div className="flex justify-between items-start mb-1">
                   <span className="font-bold text-slate-800 text-sm">{batch.batchCode}</span>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
-                    batch.status === 'Locked' ? 'bg-purple-100 text-purple-700' :
-                    batch.status === 'Planned' ? 'bg-blue-100 text-blue-700' :
-                    'bg-slate-100 text-slate-500'
+                    batch.status === 'Locked' ? 'bg-green-100 text-green-700' :
+                    batch.status === 'Planned' ? 'bg-amber-100 text-amber-700' :
+                    'bg-slate-100 text-slate-600'
                   }`}>
                     {batch.status}
                   </span>

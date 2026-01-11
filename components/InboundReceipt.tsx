@@ -152,7 +152,7 @@ export const InboundReceipt: React.FC = () => {
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
                     shipment.status === 'Received' ? 'bg-green-100 text-green-700' :
                     shipment.status === 'QC Hold' ? 'bg-red-100 text-red-700' :
-                    'bg-blue-100 text-blue-700'
+                    'bg-amber-100 text-amber-700'
                   }`}>
                     {shipment.status}
                   </span>
@@ -194,7 +194,7 @@ export const InboundReceipt: React.FC = () => {
                 </div>
                 {selectedShipment.status === 'Received' ? <CheckCircle2 className="text-green-500" size={24} /> :
                  selectedShipment.status === 'QC Hold' ? <AlertTriangle className="text-red-500" size={24} /> :
-                 <div className="h-6 w-6 rounded-full border-2 border-slate-300 border-t-blue-500 animate-spin" />}
+                 <div className="h-6 w-6 rounded-full border-2 border-slate-300 border-t-amber-500 animate-spin" />}
              </div>
           </div>
 

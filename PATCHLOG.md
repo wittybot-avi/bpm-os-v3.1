@@ -29,4 +29,5 @@
 | **PP-050** | Primary Patch | S17 Compliance & Audit | **STABLE** | Added Compliance Dashboard, Regulatory Checks, and Audit Trail. | 2026-01-11 22:50 (IST) |
 | **PP-061** | UX Patch | Sidebar Grouping & Cleanup | **STABLE** | Structured sidebar navigation into operational groups. | 2026-01-11 23:00 (IST) |
 | **PP-062** | UX Patch | Header & Breadcrumb Standardization | **STABLE** | Unified page headers, typography, and breadcrumbs. | 2026-01-11 23:15 (IST) |
-| **PP-063** | UX Patch | Empty State & Zero-Data Patterns | **IN-PROGRESS** | Standardized messaging for empty states and demo modes. | 2026-01-11 23:30 (IST) |
+| **PP-063** | UX Patch | Empty State & Zero-Data Patterns | **STABLE** | Standardized messaging for empty states and demo modes. | 2026-01-11 23:30 (IST) |
+| **PP-064** | UX Patch | Status Severity & Visual Normalization | **IN-PROGRESS** | Enforced canonical status colors (Green/Amber/Red/Slate) across all screens. | 2026-01-11 23:45 (IST) |

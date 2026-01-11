@@ -168,7 +168,7 @@ export const ServiceWarranty: React.FC = () => {
                   <span className="font-bold text-slate-800 text-sm">{pack.packId}</span>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
                     pack.warrantyStatus === 'Active' ? 'bg-green-100 text-green-700' :
-                    pack.warrantyStatus === 'Claim Raised' ? 'bg-red-100 text-red-700' :
+                    pack.warrantyStatus === 'Claim Raised' ? 'bg-amber-100 text-amber-700' :
                     'bg-slate-100 text-slate-500'
                   }`}>
                     {pack.warrantyStatus}
@@ -203,7 +203,7 @@ export const ServiceWarranty: React.FC = () => {
                 <div className="text-xs text-slate-500 uppercase font-bold">Warranty Status</div>
                 <div className={`text-lg font-bold ${
                     selectedPack.warrantyStatus === 'Active' ? 'text-green-600' :
-                    selectedPack.warrantyStatus === 'Claim Raised' ? 'text-red-600' : 'text-slate-500'
+                    selectedPack.warrantyStatus === 'Claim Raised' ? 'text-amber-600' : 'text-slate-500'
                 }`}>
                     {selectedPack.warrantyStatus.toUpperCase()}
                 </div>

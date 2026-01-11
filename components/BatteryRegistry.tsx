@@ -180,7 +180,7 @@ export const BatteryRegistry: React.FC = () => {
                         <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${
                           pack.status === 'Approved' ? 'bg-green-100 text-green-700' :
                           pack.status === 'Dispatched' ? 'bg-slate-100 text-slate-600' :
-                          'bg-amber-100 text-amber-700'
+                          'bg-red-100 text-red-700'
                         }`}>
                           {pack.status}
                         </span>
@@ -214,7 +214,7 @@ export const BatteryRegistry: React.FC = () => {
                 <div className="text-xs text-slate-500 uppercase font-bold">Registry State</div>
                 <div className={`text-lg font-bold ${
                     selectedPack.status === 'Approved' ? 'text-green-600' :
-                    selectedPack.status === 'Dispatched' ? 'text-slate-600' : 'text-amber-600'
+                    selectedPack.status === 'Dispatched' ? 'text-slate-600' : 'text-red-600'
                 }`}>
                     {selectedPack.status.toUpperCase()}
                 </div>

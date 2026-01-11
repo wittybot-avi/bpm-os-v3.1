@@ -134,9 +134,9 @@ export const PackReview: React.FC = () => {
                   <span className="font-bold text-slate-800 text-sm">{pack.packId}</span>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
                     pack.status === 'Approved' ? 'bg-green-100 text-green-700' :
-                    pack.status === 'Hold' ? 'bg-amber-100 text-amber-700' :
+                    pack.status === 'Hold' ? 'bg-red-100 text-red-700' :
                     pack.status === 'Reject' ? 'bg-red-100 text-red-700' :
-                    'bg-blue-100 text-blue-700'
+                    'bg-amber-100 text-amber-700'
                   }`}>
                     {pack.status}
                   </span>
@@ -173,9 +173,9 @@ export const PackReview: React.FC = () => {
                 <div className="text-xs text-slate-500 uppercase font-bold">Review Status</div>
                 <div className={`text-xl font-bold ${
                     selectedPack.status === 'Approved' ? 'text-green-600' :
-                    selectedPack.status === 'Hold' ? 'text-amber-600' :
+                    selectedPack.status === 'Hold' ? 'text-red-600' :
                     selectedPack.status === 'Reject' ? 'text-red-600' :
-                    'text-blue-600'
+                    'text-amber-600'
                 }`}>
                     {selectedPack.status}
                 </div>

@@ -142,8 +142,8 @@ export const ModuleQA: React.FC = () => {
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
                     mod.status === 'Cleared' ? 'bg-green-100 text-green-700' :
                     mod.status === 'Rework' ? 'bg-amber-100 text-amber-700' :
-                    mod.status === 'In Review' ? 'bg-blue-100 text-blue-700' :
-                    'bg-slate-100 text-slate-500'
+                    mod.status === 'In Review' ? 'bg-amber-100 text-amber-700' :
+                    'bg-amber-100 text-amber-700'
                   }`}>
                     {mod.status}
                   </span>
@@ -178,7 +178,7 @@ export const ModuleQA: React.FC = () => {
                 <div className="text-xs text-slate-500 uppercase font-bold">Current Status</div>
                 <div className={`text-lg font-bold ${
                     selectedModule.status === 'Rework' ? 'text-amber-600' : 
-                    selectedModule.status === 'Cleared' ? 'text-green-600' : 'text-blue-600'
+                    selectedModule.status === 'Cleared' ? 'text-green-600' : 'text-amber-600'
                 }`}>
                     {selectedModule.status}
                 </div>

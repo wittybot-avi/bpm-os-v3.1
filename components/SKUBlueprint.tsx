@@ -157,7 +157,8 @@ export const SKUBlueprint: React.FC = () => {
                     <span className="font-bold text-slate-800 text-sm">{sku.code}</span>
                     <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
                       sku.status === 'Approved' ? 'bg-green-100 text-green-700' : 
-                      sku.status === 'Draft' ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500'
+                      sku.status === 'Draft' ? 'bg-slate-100 text-slate-600' : 
+                      'bg-red-100 text-red-700'
                     }`}>
                       {sku.status}
                     </span>

@@ -139,8 +139,8 @@ export const RecyclingRecovery: React.FC = () => {
                   <span className="font-bold text-slate-800 text-sm">{unit.packId}</span>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
                     unit.status === 'Sorted' ? 'bg-green-100 text-green-700' :
-                    unit.status === 'Received' ? 'bg-blue-100 text-blue-700' :
-                    'bg-slate-100 text-slate-500'
+                    unit.status === 'Received' ? 'bg-amber-100 text-amber-700' :
+                    'bg-amber-100 text-amber-700'
                   }`}>
                     {unit.status}
                   </span>
