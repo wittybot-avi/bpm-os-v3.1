@@ -79,14 +79,17 @@ export const ModuleAssembly: React.FC = () => {
 
   return (
     <div className="space-y-6 h-full flex flex-col animate-in fade-in duration-300">
-      {/* Header */}
-      <div className="flex items-center justify-between shrink-0">
+      {/* Standard Header */}
+      <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
+           <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
+              Production <span className="text-slate-300">/</span> Module Line
+           </div>
            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-             <Wrench className="text-brand-600" />
+             <Wrench className="text-brand-600" size={24} />
              Module Assembly Workstation (S5)
            </h1>
-           <p className="text-slate-500">Operator Interface: Assembly Execution & Quality Check.</p>
+           <p className="text-slate-500 text-sm mt-1">Operator Interface: Assembly Execution & Quality Check.</p>
         </div>
         <div className="flex items-center gap-2">
              <span className="flex items-center gap-1.5 px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold uppercase tracking-wider animate-pulse">

@@ -14,7 +14,8 @@ import {
   CheckCircle2,
   Globe,
   FileBadge,
-  Archive
+  Archive,
+  Scale
 } from 'lucide-react';
 
 // Mock Data Types
@@ -106,14 +107,17 @@ export const FinishedGoods: React.FC = () => {
 
   return (
     <div className="space-y-6 h-full flex flex-col animate-in fade-in duration-300">
-      {/* Header */}
-      <div className="flex items-center justify-between shrink-0">
+      {/* Standard Header */}
+      <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
+           <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
+              Logistics <span className="text-slate-300">/</span> Inventory
+           </div>
            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-             <PackageCheck className="text-brand-600" />
+             <PackageCheck className="text-brand-600" size={24} />
              Finished Goods Inventory (S11)
            </h1>
-           <p className="text-slate-500">Manage warehouse stock, storage locations, and dispatch readiness.</p>
+           <p className="text-slate-500 text-sm mt-1">Manage warehouse stock, storage locations, and dispatch readiness.</p>
         </div>
         <div className="flex items-center gap-2 bg-slate-100 px-3 py-1 rounded text-xs font-mono text-slate-600 border border-slate-200">
              <Archive size={14} className="text-slate-500" />

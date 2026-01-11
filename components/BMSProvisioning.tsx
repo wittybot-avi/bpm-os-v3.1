@@ -79,14 +79,17 @@ export const BMSProvisioning: React.FC = () => {
 
   return (
     <div className="space-y-6 h-full flex flex-col animate-in fade-in duration-300">
-      {/* Header */}
-      <div className="flex items-center justify-between shrink-0">
+      {/* Standard Header */}
+      <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
+           <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
+              Traceability <span className="text-slate-300">/</span> Provisioning
+           </div>
            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-             <Cpu className="text-brand-600" />
+             <Cpu className="text-brand-600" size={24} />
              BMS Provisioning (S10)
            </h1>
-           <p className="text-slate-500">Firmware flashing, configuration injection, and digital identity binding.</p>
+           <p className="text-slate-500 text-sm mt-1">Firmware flashing, configuration injection, and digital identity binding.</p>
         </div>
         <div className="flex items-center gap-2 bg-slate-100 px-3 py-1 rounded text-xs font-mono text-slate-600 border border-slate-200">
              <Wifi size={14} className="text-green-500" />

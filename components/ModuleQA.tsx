@@ -100,14 +100,17 @@ export const ModuleQA: React.FC = () => {
 
   return (
     <div className="space-y-6 h-full flex flex-col animate-in fade-in duration-300">
-      {/* Header */}
-      <div className="flex items-center justify-between shrink-0">
+      {/* Standard Header */}
+      <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
+           <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
+              Production <span className="text-slate-300">/</span> Quality Control
+           </div>
            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-             <ClipboardCheck className="text-brand-600" />
+             <ClipboardCheck className="text-brand-600" size={24} />
              Module Quality Assurance (S6)
            </h1>
-           <p className="text-slate-500">Inspect assembled modules, record measurements, and assign quality disposition.</p>
+           <p className="text-slate-500 text-sm mt-1">Inspect assembled modules, record measurements, and assign quality disposition.</p>
         </div>
       </div>
 

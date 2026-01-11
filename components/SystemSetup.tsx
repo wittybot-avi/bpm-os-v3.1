@@ -19,11 +19,17 @@ export const SystemSetup: React.FC = () => {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
-      {/* Header */}
-      <div className="flex items-center justify-between">
+      {/* Standard Header */}
+      <div className="flex items-center justify-between border-b border-slate-200 pb-4">
         <div>
-           <h1 className="text-2xl font-bold text-slate-900">System Setup & Governance (S0)</h1>
-           <p className="text-slate-500">Plant configuration, regulatory context, and user registry.</p>
+           <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
+              System Setup <span className="text-slate-300">/</span> Overview
+           </div>
+           <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
+             <Settings className="text-brand-600" size={24} />
+             System Setup (S0)
+           </h1>
+           <p className="text-slate-500 text-sm mt-1">Plant configuration, regulatory context, and user registry.</p>
         </div>
         <div className="bg-amber-100 text-amber-800 px-3 py-1 rounded text-xs font-bold border border-amber-200">
           READ ONLY MODE

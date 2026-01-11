@@ -95,14 +95,17 @@ export const BatchPlanning: React.FC = () => {
 
   return (
     <div className="space-y-6 h-full flex flex-col animate-in fade-in duration-300">
-      {/* Header */}
-      <div className="flex items-center justify-between shrink-0">
+      {/* Standard Header */}
+      <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
+           <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
+              Production <span className="text-slate-300">/</span> Planning
+           </div>
            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-             <CalendarClock className="text-brand-600" />
+             <CalendarClock className="text-brand-600" size={24} />
              Batch Planning & Scheduling (S4)
            </h1>
-           <p className="text-slate-500">Schedule production runs, assign lines, and lock execution batches.</p>
+           <p className="text-slate-500 text-sm mt-1">Schedule production runs, assign lines, and lock execution batches.</p>
         </div>
         {!isReadOnly && (
           <div className="flex gap-3">

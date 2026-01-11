@@ -101,14 +101,17 @@ export const SKUBlueprint: React.FC = () => {
 
   return (
     <div className="space-y-6 h-full flex flex-col animate-in fade-in duration-300">
-      {/* Header */}
-      <div className="flex items-center justify-between shrink-0">
+      {/* Standard Header */}
+      <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
+           <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
+              System Setup <span className="text-slate-300">/</span> SKU Master
+           </div>
            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-             <Cpu className="text-brand-600" />
+             <Cpu className="text-brand-600" size={24} />
              SKU & Regulatory Blueprint (S1)
            </h1>
-           <p className="text-slate-500">Define battery chemistry, electrical specs, and regulatory compliance.</p>
+           <p className="text-slate-500 text-sm mt-1">Define battery chemistry, electrical specs, and regulatory compliance.</p>
         </div>
         <button 
           className="bg-brand-600 text-white px-4 py-2 rounded-md font-medium text-sm opacity-50 cursor-not-allowed flex items-center gap-2"

@@ -81,14 +81,17 @@ export const PackagingAggregation: React.FC = () => {
 
   return (
     <div className="space-y-6 h-full flex flex-col animate-in fade-in duration-300">
-      {/* Header */}
-      <div className="flex items-center justify-between shrink-0">
+      {/* Standard Header */}
+      <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
+           <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
+              Logistics <span className="text-slate-300">/</span> Packaging
+           </div>
            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-             <Package className="text-brand-600" />
+             <Package className="text-brand-600" size={24} />
              Packaging & Aggregation (S12)
            </h1>
-           <p className="text-slate-500">Aggregate packs into shipping units, generate manifests, and seal containers.</p>
+           <p className="text-slate-500 text-sm mt-1">Aggregate packs into shipping units, generate manifests, and seal containers.</p>
         </div>
         <div className="flex items-center gap-2 bg-slate-100 px-3 py-1 rounded text-xs font-mono text-slate-600 border border-slate-200">
              <Scale size={14} className="text-slate-500" />
