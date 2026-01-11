@@ -16,7 +16,8 @@ import {
   Wrench,
   ClipboardCheck,
   Battery,
-  FileCheck
+  FileCheck,
+  Database
 } from 'lucide-react';
 
 interface NavItemProps {
@@ -96,6 +97,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
     role === UserRole.QA_ENGINEER ||
     role === UserRole.SUPERVISOR ||
     role === UserRole.MANAGEMENT;
+  
+  const canSeeRegistry = 
+    role === UserRole.SYSTEM_ADMIN || 
+    role === UserRole.MANAGEMENT || 
+    role === UserRole.ENGINEERING ||
+    role === UserRole.QA_ENGINEER;
 
   return (
     <aside className="w-64 bg-white border-r border-industrial-border h-full flex flex-col shrink-0">
@@ -180,6 +187,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
               label="Pack Review (S8)" 
               active={currentView === 'pack_review'} 
               onClick={() => onNavigate('pack_review')} 
+            />
+          )}
+          {canSeeRegistry && (
+            <NavItem 
+              icon={Database} 
+              label="Battery Registry (S9)" 
+              active={currentView === 'battery_registry'} 
+              onClick={() => onNavigate('battery_registry')} 
             />
           )}
           <NavItem icon={Activity} label="Live Status" />
