@@ -23,7 +23,8 @@ import {
   Stamp,
   LogOut,
   LifeBuoy,
-  Recycle
+  Recycle,
+  ShieldCheck
 } from 'lucide-react';
 
 interface NavItemProps {
@@ -151,6 +152,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
     role === UserRole.SYSTEM_ADMIN ||
     role === UserRole.SUSTAINABILITY ||
     role === UserRole.SERVICE ||
+    role === UserRole.MANAGEMENT;
+
+  const canSeeCompliance = 
+    role === UserRole.SYSTEM_ADMIN ||
+    role === UserRole.COMPLIANCE ||
+    role === UserRole.SUSTAINABILITY ||
     role === UserRole.MANAGEMENT;
 
   return (
@@ -303,6 +310,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
                 label="Recycling & Recovery (S16)" 
                 active={currentView === 'recycling_recovery'} 
                 onClick={() => onNavigate('recycling_recovery')} 
+              />
+            )}
+            {canSeeCompliance && (
+              <NavItem 
+                icon={ShieldCheck} 
+                label="Compliance & Audit (S17)" 
+                active={currentView === 'compliance_audit'} 
+                onClick={() => onNavigate('compliance_audit')} 
               />
             )}
             <NavItem icon={Activity} label="Live Status" />
