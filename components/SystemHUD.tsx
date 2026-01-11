@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { UserContext, APP_VERSION, PATCH_ID, APP_NAME } from '../types';
-import { ChevronUp, ChevronDown, Activity } from 'lucide-react';
+import { ChevronUp, ChevronDown, Activity, Lock } from 'lucide-react';
 
 export const SystemHUD: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,6 +59,18 @@ export const SystemHUD: React.FC = () => {
               <div className="flex justify-between pt-2 border-t border-slate-700">
                   <span className="text-slate-500">System Date:</span>
                   <span className="text-slate-300">{currentDate}</span>
+              </div>
+              
+              {/* Design Freeze Indicator */}
+              <div className="mt-2 pt-2 border-t border-slate-700">
+                 <div className="bg-blue-900/30 text-blue-200 p-2 rounded text-xs text-center border border-blue-800/50 flex flex-col items-center gap-1">
+                    <div className="flex items-center gap-1 font-bold">
+                        <Lock size={12} />
+                        DESIGN FROZEN
+                    </div>
+                    <span className="text-[10px] opacity-75">BPM-OS v3.1 • {PATCH_ID}</span>
+                    <span className="text-[10px] opacity-60">2026-01-12 01:25 (IST)</span>
+                 </div>
               </div>
             </div>
          </div>

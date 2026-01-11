@@ -35,4 +35,5 @@
 | **PP-090** | Hardening Patch | System Dashboard & Narrative Framing | **STABLE** | Introduced read-only System Dashboard and aligned lifecycle terminology. | 2026-01-12 00:15 (IST) |
 | **PP-091** | Hardening Patch | Custody & Asset Tracking Clarity | **STABLE** | Separated Asset vs Material tracking, added Custodian of Record view. | 2026-01-12 00:30 (IST) |
 | **PP-092** | Hardening Patch | Semantic Hardening (Track vs Trace) | **STABLE** | Enforced Trace (Lineage) vs Track (State) terminology across screens. | 2026-01-12 00:45 (IST) |
-| **PP-093** | Hardening Patch | RBAC Hardening & Safety UX | **IN-PROGRESS** | Enforced strict read-only views for Auditors, hid restricted actions. | 2026-01-12 01:05 (IST) |
+| **PP-093** | Hardening Patch | RBAC Hardening & Safety UX | **STABLE** | Enforced strict read-only views for Auditors, hid restricted actions. | 2026-01-12 01:05 (IST) |
+| **PP-094** | Handover Patch | Design Freeze / Backend Handover | **STABLE** | Frontend Design Frozen — Backend Handover Ready. | 2026-01-12 01:25 (IST) |
