@@ -12,7 +12,8 @@ export enum UserRole {
   PROCUREMENT = 'Commercial / Procurement',
   PLANNER = 'Production Planner',
   LOGISTICS = 'Logistics / Dispatch',
-  SERVICE = 'Service / Support'
+  SERVICE = 'Service / Support',
+  SUSTAINABILITY = 'Sustainability / ESG'
 }
 
 // User Context Interface
@@ -38,7 +39,7 @@ export const UserContext = createContext<UserContextType>({
 // App Constants
 export const APP_VERSION = 'V3.1';
 export const APP_NAME = 'BPM-OS';
-export const PATCH_ID = 'PP-040';
+export const PATCH_ID = 'PP-041';
 
 // Navigation Views
-export type NavView = 'dashboard' | 'system_setup' | 'sku_blueprint' | 'procurement' | 'inbound_receipt' | 'batch_planning' | 'module_assembly' | 'module_qa' | 'pack_assembly' | 'pack_review' | 'battery_registry' | 'bms_provisioning' | 'finished_goods' | 'packaging_aggregation' | 'dispatch_authorization' | 'dispatch_execution' | 'service_warranty';
+export type NavView = 'dashboard' | 'system_setup' | 'sku_blueprint' | 'procurement' | 'inbound_receipt' | 'batch_planning' | 'module_assembly' | 'module_qa' | 'pack_assembly' | 'pack_review' | 'battery_registry' | 'bms_provisioning' | 'finished_goods' | 'packaging_aggregation' | 'dispatch_authorization' | 'dispatch_execution' | 'service_warranty' | 'recycling_recovery';

@@ -18,6 +18,7 @@ import { PackagingAggregation } from './components/PackagingAggregation';
 import { DispatchAuthorization } from './components/DispatchAuthorization';
 import { DispatchExecution } from './components/DispatchExecution';
 import { ServiceWarranty } from './components/ServiceWarranty';
+import { RecyclingRecovery } from './components/RecyclingRecovery';
 import { UserRole, UserContextType, UserContext, NavView } from './types';
 import { canAccess } from './utils/rbac';
 
@@ -61,6 +62,7 @@ const App: React.FC = () => {
           {currentView === 'dispatch_authorization' && <DispatchAuthorization />}
           {currentView === 'dispatch_execution' && <DispatchExecution />}
           {currentView === 'service_warranty' && <ServiceWarranty />}
+          {currentView === 'recycling_recovery' && <RecyclingRecovery />}
         </Layout>
       </UserContext.Provider>
     </ErrorBoundary>

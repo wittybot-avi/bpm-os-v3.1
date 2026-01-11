@@ -22,7 +22,8 @@ import {
   Package,
   Stamp,
   LogOut,
-  LifeBuoy
+  LifeBuoy,
+  Recycle
 } from 'lucide-react';
 
 interface NavItemProps {
@@ -146,166 +147,184 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
     role === UserRole.SERVICE ||
     role === UserRole.MANAGEMENT;
 
+  const canSeeRecycling = 
+    role === UserRole.SYSTEM_ADMIN ||
+    role === UserRole.SUSTAINABILITY ||
+    role === UserRole.SERVICE ||
+    role === UserRole.MANAGEMENT;
+
   return (
     <aside className="w-64 bg-white border-r border-industrial-border h-full flex flex-col shrink-0">
-      <div className="p-4">
-        <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 px-4">
-          Navigation
+      
+      {/* Scrollable Navigation Area */}
+      <div className="flex-1 overflow-y-auto">
+        <div className="p-4">
+          <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 px-4">
+            Navigation
+          </div>
+          <nav className="flex flex-col space-y-1">
+            <NavItem 
+              icon={Home} 
+              label="Dashboard" 
+              active={currentView === 'dashboard'} 
+              onClick={() => onNavigate('dashboard')} 
+            />
+            {canSeeSystemSetup && (
+              <NavItem 
+                icon={Settings} 
+                label="System Setup (S0)" 
+                active={currentView === 'system_setup'} 
+                onClick={() => onNavigate('system_setup')} 
+              />
+            )}
+            {canSeeSkuBlueprint && (
+               <NavItem 
+                icon={Cpu} 
+                label="SKU & Blueprint (S1)" 
+                active={currentView === 'sku_blueprint'} 
+                onClick={() => onNavigate('sku_blueprint')} 
+              />
+            )}
+            {canSeeProcurement && (
+               <NavItem 
+                icon={ShoppingCart} 
+                label="Procurement (S2)" 
+                active={currentView === 'procurement'} 
+                onClick={() => onNavigate('procurement')} 
+              />
+            )}
+            {canSeeInboundReceipt && (
+               <NavItem 
+                icon={Truck} 
+                label="Inbound Receipt (S3)" 
+                active={currentView === 'inbound_receipt'} 
+                onClick={() => onNavigate('inbound_receipt')} 
+              />
+            )}
+            {canSeeBatchPlanning && (
+               <NavItem 
+                icon={CalendarClock} 
+                label="Batch Planning (S4)" 
+                active={currentView === 'batch_planning'} 
+                onClick={() => onNavigate('batch_planning')} 
+              />
+            )}
+            {canSeeModuleAssembly && (
+               <NavItem 
+                icon={Wrench} 
+                label="Module Assembly (S5)" 
+                active={currentView === 'module_assembly'} 
+                onClick={() => onNavigate('module_assembly')} 
+              />
+            )}
+            {canSeeModuleQA && (
+               <NavItem 
+                icon={ClipboardCheck} 
+                label="Module QA (S6)" 
+                active={currentView === 'module_qa'} 
+                onClick={() => onNavigate('module_qa')} 
+              />
+            )}
+            {canSeePackAssembly && (
+               <NavItem 
+                icon={Battery} 
+                label="Pack Assembly (S7)" 
+                active={currentView === 'pack_assembly'} 
+                onClick={() => onNavigate('pack_assembly')} 
+              />
+            )}
+            {canSeePackReview && (
+               <NavItem 
+                icon={FileCheck} 
+                label="Pack Review (S8)" 
+                active={currentView === 'pack_review'} 
+                onClick={() => onNavigate('pack_review')} 
+              />
+            )}
+            {canSeeRegistry && (
+              <NavItem 
+                icon={Database} 
+                label="Battery Registry (S9)" 
+                active={currentView === 'battery_registry'} 
+                onClick={() => onNavigate('battery_registry')} 
+              />
+            )}
+            {canSeeBMSProvisioning && (
+              <NavItem 
+                icon={Cpu} 
+                label="BMS Provisioning (S10)" 
+                active={currentView === 'bms_provisioning'} 
+                onClick={() => onNavigate('bms_provisioning')} 
+              />
+            )}
+            {canSeeFinishedGoods && (
+              <NavItem 
+                icon={PackageCheck} 
+                label="Finished Goods (S11)" 
+                active={currentView === 'finished_goods'} 
+                onClick={() => onNavigate('finished_goods')} 
+              />
+            )}
+            {canSeePackaging && (
+              <NavItem 
+                icon={Package} 
+                label="Packaging (S12)" 
+                active={currentView === 'packaging_aggregation'} 
+                onClick={() => onNavigate('packaging_aggregation')} 
+              />
+            )}
+            {canSeeDispatchAuth && (
+              <NavItem 
+                icon={Stamp} 
+                label="Dispatch Auth (S13)" 
+                active={currentView === 'dispatch_authorization'} 
+                onClick={() => onNavigate('dispatch_authorization')} 
+              />
+            )}
+            {canSeeDispatchExec && (
+              <NavItem 
+                icon={LogOut} 
+                label="Dispatch Exec (S14)" 
+                active={currentView === 'dispatch_execution'} 
+                onClick={() => onNavigate('dispatch_execution')} 
+              />
+            )}
+            {canSeeService && (
+              <NavItem 
+                icon={LifeBuoy} 
+                label="Service & Warranty (S15)" 
+                active={currentView === 'service_warranty'} 
+                onClick={() => onNavigate('service_warranty')} 
+              />
+            )}
+            {canSeeRecycling && (
+              <NavItem 
+                icon={Recycle} 
+                label="Recycling & Recovery (S16)" 
+                active={currentView === 'recycling_recovery'} 
+                onClick={() => onNavigate('recycling_recovery')} 
+              />
+            )}
+            <NavItem icon={Activity} label="Live Status" />
+            <NavItem icon={Box} label="Inventory" />
+            <NavItem icon={Layers} label="Production Line" />
+          </nav>
         </div>
-        <nav className="flex flex-col space-y-1">
-          <NavItem 
-            icon={Home} 
-            label="Dashboard" 
-            active={currentView === 'dashboard'} 
-            onClick={() => onNavigate('dashboard')} 
-          />
-          {canSeeSystemSetup && (
-            <NavItem 
-              icon={Settings} 
-              label="System Setup (S0)" 
-              active={currentView === 'system_setup'} 
-              onClick={() => onNavigate('system_setup')} 
-            />
-          )}
-          {canSeeSkuBlueprint && (
-             <NavItem 
-              icon={Cpu} 
-              label="SKU & Blueprint (S1)" 
-              active={currentView === 'sku_blueprint'} 
-              onClick={() => onNavigate('sku_blueprint')} 
-            />
-          )}
-          {canSeeProcurement && (
-             <NavItem 
-              icon={ShoppingCart} 
-              label="Procurement (S2)" 
-              active={currentView === 'procurement'} 
-              onClick={() => onNavigate('procurement')} 
-            />
-          )}
-          {canSeeInboundReceipt && (
-             <NavItem 
-              icon={Truck} 
-              label="Inbound Receipt (S3)" 
-              active={currentView === 'inbound_receipt'} 
-              onClick={() => onNavigate('inbound_receipt')} 
-            />
-          )}
-          {canSeeBatchPlanning && (
-             <NavItem 
-              icon={CalendarClock} 
-              label="Batch Planning (S4)" 
-              active={currentView === 'batch_planning'} 
-              onClick={() => onNavigate('batch_planning')} 
-            />
-          )}
-          {canSeeModuleAssembly && (
-             <NavItem 
-              icon={Wrench} 
-              label="Module Assembly (S5)" 
-              active={currentView === 'module_assembly'} 
-              onClick={() => onNavigate('module_assembly')} 
-            />
-          )}
-          {canSeeModuleQA && (
-             <NavItem 
-              icon={ClipboardCheck} 
-              label="Module QA (S6)" 
-              active={currentView === 'module_qa'} 
-              onClick={() => onNavigate('module_qa')} 
-            />
-          )}
-          {canSeePackAssembly && (
-             <NavItem 
-              icon={Battery} 
-              label="Pack Assembly (S7)" 
-              active={currentView === 'pack_assembly'} 
-              onClick={() => onNavigate('pack_assembly')} 
-            />
-          )}
-          {canSeePackReview && (
-             <NavItem 
-              icon={FileCheck} 
-              label="Pack Review (S8)" 
-              active={currentView === 'pack_review'} 
-              onClick={() => onNavigate('pack_review')} 
-            />
-          )}
-          {canSeeRegistry && (
-            <NavItem 
-              icon={Database} 
-              label="Battery Registry (S9)" 
-              active={currentView === 'battery_registry'} 
-              onClick={() => onNavigate('battery_registry')} 
-            />
-          )}
-          {canSeeBMSProvisioning && (
-            <NavItem 
-              icon={Cpu} 
-              label="BMS Provisioning (S10)" 
-              active={currentView === 'bms_provisioning'} 
-              onClick={() => onNavigate('bms_provisioning')} 
-            />
-          )}
-          {canSeeFinishedGoods && (
-            <NavItem 
-              icon={PackageCheck} 
-              label="Finished Goods (S11)" 
-              active={currentView === 'finished_goods'} 
-              onClick={() => onNavigate('finished_goods')} 
-            />
-          )}
-          {canSeePackaging && (
-            <NavItem 
-              icon={Package} 
-              label="Packaging (S12)" 
-              active={currentView === 'packaging_aggregation'} 
-              onClick={() => onNavigate('packaging_aggregation')} 
-            />
-          )}
-          {canSeeDispatchAuth && (
-            <NavItem 
-              icon={Stamp} 
-              label="Dispatch Auth (S13)" 
-              active={currentView === 'dispatch_authorization'} 
-              onClick={() => onNavigate('dispatch_authorization')} 
-            />
-          )}
-          {canSeeDispatchExec && (
-            <NavItem 
-              icon={LogOut} 
-              label="Dispatch Exec (S14)" 
-              active={currentView === 'dispatch_execution'} 
-              onClick={() => onNavigate('dispatch_execution')} 
-            />
-          )}
-          {canSeeService && (
-            <NavItem 
-              icon={LifeBuoy} 
-              label="Service & Warranty (S15)" 
-              active={currentView === 'service_warranty'} 
-              onClick={() => onNavigate('service_warranty')} 
-            />
-          )}
-          <NavItem icon={Activity} label="Live Status" />
-          <NavItem icon={Box} label="Inventory" />
-          <NavItem icon={Layers} label="Production Line" />
-        </nav>
-      </div>
 
-      <div className="p-4 mt-auto">
-        <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 px-4">
-          System
+        <div className="p-4">
+          <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 px-4">
+            System
+          </div>
+          <nav className="flex flex-col space-y-1">
+            <NavItem icon={ClipboardList} label="Logs" />
+            <NavItem icon={BarChart2} label="Reports" />
+            <NavItem icon={FileText} label="Documentation" />
+          </nav>
         </div>
-        <nav className="flex flex-col space-y-1">
-          <NavItem icon={ClipboardList} label="Logs" />
-          <NavItem icon={BarChart2} label="Reports" />
-          <NavItem icon={FileText} label="Documentation" />
-        </nav>
       </div>
       
       {/* Footer Watermark - Unified Patch ID Source */}
-      <div className="p-4 border-t border-slate-100 text-center">
+      <div className="p-4 border-t border-slate-100 text-center shrink-0 bg-white z-10">
         <p className="text-[10px] text-slate-400">
           {APP_NAME} {APP_VERSION} | Build {PATCH_ID}
           <br />
