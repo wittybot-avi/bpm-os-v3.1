@@ -10,7 +10,8 @@ import {
   FileText,
   Settings,
   Cpu,
-  ShoppingCart
+  ShoppingCart,
+  Truck
 } from 'lucide-react';
 
 interface NavItemProps {
@@ -42,19 +43,23 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => {
   const { role } = useContext(UserContext);
   
-  // RBAC: Only System Admin and Management can see System Setup
+  // RBAC Logic
   const canSeeSystemSetup = role === UserRole.SYSTEM_ADMIN || role === UserRole.MANAGEMENT;
-
-  // RBAC: SKU Blueprint for Admin, Engineering, Management
+  
   const canSeeSkuBlueprint = 
     role === UserRole.SYSTEM_ADMIN || 
     role === UserRole.ENGINEERING || 
     role === UserRole.MANAGEMENT;
 
-  // RBAC: Procurement for Admin, Commercial, Management
   const canSeeProcurement = 
     role === UserRole.SYSTEM_ADMIN || 
     role === UserRole.PROCUREMENT || 
+    role === UserRole.MANAGEMENT;
+
+  const canSeeInboundReceipt = 
+    role === UserRole.SYSTEM_ADMIN || 
+    role === UserRole.STORES || 
+    role === UserRole.SUPERVISOR || 
     role === UserRole.MANAGEMENT;
 
   return (
@@ -92,6 +97,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
               label="Procurement (S2)" 
               active={currentView === 'procurement'} 
               onClick={() => onNavigate('procurement')} 
+            />
+          )}
+          {canSeeInboundReceipt && (
+             <NavItem 
+              icon={Truck} 
+              label="Inbound Receipt (S3)" 
+              active={currentView === 'inbound_receipt'} 
+              onClick={() => onNavigate('inbound_receipt')} 
             />
           )}
           <NavItem icon={Activity} label="Live Status" />
