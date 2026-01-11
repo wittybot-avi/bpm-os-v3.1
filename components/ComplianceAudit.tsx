@@ -146,7 +146,7 @@ export const ComplianceAudit: React.FC = () => {
                 <div className="p-6">
                     <div className="flex items-center gap-2 mb-4 text-blue-700">
                         <Battery size={20} />
-                        <h4 className="font-bold text-sm uppercase tracking-wider">Asset-Level Compliance</h4>
+                        <h4 className="font-bold text-sm uppercase tracking-wider">Asset-Level Compliance (Track-Based, Custodian-Driven)</h4>
                     </div>
                     <div className="space-y-3">
                         <div className="flex justify-between text-sm">
@@ -168,7 +168,7 @@ export const ComplianceAudit: React.FC = () => {
                 <div className="p-6">
                     <div className="flex items-center gap-2 mb-4 text-green-700">
                         <Recycle size={20} />
-                        <h4 className="font-bold text-sm uppercase tracking-wider">Material-Level Compliance</h4>
+                        <h4 className="font-bold text-sm uppercase tracking-wider">Material-Level Compliance (Trace-Based, Aggregated)</h4>
                     </div>
                     <div className="space-y-3">
                         <div className="flex justify-between text-sm">

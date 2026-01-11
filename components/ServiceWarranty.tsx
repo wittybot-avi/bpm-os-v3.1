@@ -116,17 +116,18 @@ export const ServiceWarranty: React.FC = () => {
       <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
            <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
-              Lifecycle <span className="text-slate-300">/</span> Service
+              Track & Lifecycle <span className="text-slate-300">/</span> Service
            </div>
            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
              <LifeBuoy className="text-brand-600" size={24} />
              Service, Warranty & Monitoring (S15)
            </h1>
            <p className="text-slate-500 text-sm mt-1">Track deployed fleet health, manage warranty claims, and view telemetry.</p>
+           <p className="text-xs text-slate-400 mt-1 italic">This screen reflects current lifecycle tracking, not manufacturing lineage.</p>
         </div>
         <div className="flex items-center gap-2 bg-blue-50 text-blue-700 px-3 py-1 rounded border border-blue-200 text-xs font-bold">
              <Signal size={14} />
-             <span>TELEMETRY LINK: ACTIVE</span>
+             <span>LIFECYCLE TRACKING</span>
         </div>
       </div>
 

@@ -83,13 +83,13 @@ export const BMSProvisioning: React.FC = () => {
       <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
            <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
-              Traceability <span className="text-slate-300">/</span> Provisioning
+              Trace & Identity <span className="text-slate-300">/</span> Provisioning
            </div>
            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
              <Cpu className="text-brand-600" size={24} />
              BMS Provisioning (S10)
            </h1>
-           <p className="text-slate-500 text-sm mt-1">Firmware flashing, configuration injection, and digital identity binding.</p>
+           <p className="text-slate-500 text-sm mt-1">Firmware flashing, configuration injection, and digital identity binding (Trace).</p>
         </div>
         <div className="flex items-center gap-2 bg-slate-100 px-3 py-1 rounded text-xs font-mono text-slate-600 border border-slate-200">
              <Wifi size={14} className="text-green-500" />
@@ -160,10 +160,11 @@ export const BMSProvisioning: React.FC = () => {
             
             {/* 1. Identity Binding */}
             <section className="bg-slate-50 rounded-lg p-5 border border-slate-200">
-                <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-1 flex items-center gap-2">
                     <ScanLine size={16} className="text-brand-500" />
                     BMS Identity Binding
                 </h3>
+                <p className="text-xs text-slate-400 mb-4">Establishes permanent component lineage (Trace).</p>
                 
                 <div className="grid grid-cols-2 gap-6">
                     <div>
@@ -232,7 +233,7 @@ export const BMSProvisioning: React.FC = () => {
             {/* 3. Visualization */}
             <section className="pt-4 border-t border-slate-100">
                  <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
-                    <span>Provisioning Sequence</span>
+                    <span>Provisioning Trace Sequence</span>
                     <span>Status: IDLE</span>
                  </div>
                  <div className="flex items-center gap-2">

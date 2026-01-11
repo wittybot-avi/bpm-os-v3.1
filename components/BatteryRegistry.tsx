@@ -180,11 +180,11 @@ export const BatteryRegistry: React.FC = () => {
              <Database className="text-brand-600" size={24} />
              Battery Registry (S9)
            </h1>
-           <p className="text-slate-500 text-sm mt-1">System of Record for all manufactured units. Read-only Digital Twin view.</p>
+           <p className="text-slate-500 text-sm mt-1">System of Record for all manufactured units. Read-only Digital Twin (Trace) view.</p>
         </div>
         <div className="flex items-center gap-2 bg-slate-100 text-slate-600 px-3 py-1 rounded-md text-xs font-bold border border-slate-200">
              <History size={14} />
-             <span>IMMUTABLE LEDGER MODE</span>
+             <span>TRACE VIEW</span>
         </div>
       </div>
 
@@ -283,10 +283,11 @@ export const BatteryRegistry: React.FC = () => {
             
             {/* --- SECTION: ASSET TRACKING --- */}
             <div className="border-l-4 border-blue-500 pl-4">
-                <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-1 flex items-center gap-2">
                     <Battery size={16} className="text-blue-500" />
-                    Asset Tracking Scope
+                    Asset Tracking Scope (Current State)
                 </h3>
+                <p className="text-xs text-slate-400 mb-4 italic">Current State Snapshot (Track reference only)</p>
 
                 {/* Custodian of Record Panel */}
                 <div className="bg-slate-50 rounded-lg border border-slate-200 p-4 mb-4">
@@ -322,7 +323,7 @@ export const BatteryRegistry: React.FC = () => {
 
                 {/* Custody Transition Timeline */}
                 <div className="mb-6">
-                    <div className="text-xs font-bold text-slate-400 mb-2">CUSTODY LIFECYCLE</div>
+                    <div className="text-xs font-bold text-slate-400 mb-2">CUSTODY TRACKING TIMELINE</div>
                     <div className="flex items-center justify-between text-[10px] text-slate-500 relative">
                         {/* Track Line */}
                         <div className="absolute top-1.5 left-0 w-full h-0.5 bg-slate-200 -z-10"></div>
@@ -353,7 +354,7 @@ export const BatteryRegistry: React.FC = () => {
                 {/* Component Traceability (Integrated) */}
                 <div className="grid grid-cols-2 gap-4 text-sm">
                     <div className="p-3 bg-white rounded border border-slate-200">
-                        <div className="text-xs text-slate-400 mb-1">BMS Serial Number</div>
+                        <div className="text-xs text-slate-400 mb-1">BMS Serial Number (Identity)</div>
                         <div className="font-mono font-medium text-slate-800">{selectedPack.details.bmsSerial}</div>
                     </div>
                     <div className="p-3 bg-white rounded border border-slate-200">
@@ -365,10 +366,11 @@ export const BatteryRegistry: React.FC = () => {
 
             {/* --- SECTION: MATERIAL TRACKING --- */}
             <div className="border-l-4 border-green-500 pl-4 pt-2">
-                <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-1 flex items-center gap-2">
                     <Recycle size={16} className="text-green-500" />
-                    Material Tracking Scope
+                    Material Attributes (Regulatory Traceability)
                 </h3>
+                <p className="text-xs text-slate-400 mb-4 italic">Immutable material provenance and mass accounting.</p>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                     <div className="p-3 bg-slate-50 rounded border border-slate-200">
                        <div className="text-xs text-slate-400 mb-1">Chemistry Category</div>

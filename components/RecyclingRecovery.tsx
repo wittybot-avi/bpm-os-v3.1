@@ -87,13 +87,13 @@ export const RecyclingRecovery: React.FC = () => {
       <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
            <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
-              Lifecycle <span className="text-slate-300">/</span> Recovery
+              Track & Lifecycle <span className="text-slate-300">/</span> Recovery
            </div>
            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
              <Recycle className="text-brand-600" size={24} />
              Recycling & Recovery (S16)
            </h1>
-           <p className="text-slate-500 text-sm mt-1">End-of-Life (EOL) management, sorting, and material recovery processing.</p>
+           <p className="text-slate-500 text-sm mt-1">End-of-Life (EOL) management, sorting, and material recovery processing (Track -> Trace Bridge).</p>
         </div>
         <div className="flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded border border-green-200 text-xs font-bold">
              <Leaf size={14} />
@@ -109,7 +109,7 @@ export const RecyclingRecovery: React.FC = () => {
           <div className="p-4 border-b border-slate-100 bg-slate-50">
              <h3 className="font-semibold text-slate-700 flex items-center gap-2">
                <RotateCcw size={16} />
-               Returns Intake
+               Returns Intake (Current State)
              </h3>
              <span className="text-xs text-slate-400">Pending Disposition</span>
           </div>
@@ -189,7 +189,7 @@ export const RecyclingRecovery: React.FC = () => {
             <section>
                 <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2">
                     <Factory size={16} className="text-brand-500" />
-                    Inspection & Sorting
+                    Inspection & Sorting (Track -> Trace)
                 </h3>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     <button 
@@ -237,7 +237,7 @@ export const RecyclingRecovery: React.FC = () => {
             <section className="bg-slate-50 rounded-lg p-5 border border-slate-200">
                 <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2">
                     <Scale size={16} className="text-brand-500" />
-                    Material Recovery Estimate
+                    Material Recovery Estimate (Trace Origin Reference)
                 </h3>
                 <div className="grid grid-cols-3 gap-6">
                     <div>
