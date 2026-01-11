@@ -104,6 +104,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
     role === UserRole.ENGINEERING ||
     role === UserRole.QA_ENGINEER;
 
+  const canSeeBMSProvisioning = 
+    role === UserRole.SYSTEM_ADMIN ||
+    role === UserRole.ENGINEERING ||
+    role === UserRole.SUPERVISOR ||
+    role === UserRole.MANAGEMENT;
+
   return (
     <aside className="w-64 bg-white border-r border-industrial-border h-full flex flex-col shrink-0">
       <div className="p-4">
@@ -195,6 +201,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
               label="Battery Registry (S9)" 
               active={currentView === 'battery_registry'} 
               onClick={() => onNavigate('battery_registry')} 
+            />
+          )}
+          {canSeeBMSProvisioning && (
+            <NavItem 
+              icon={Cpu} 
+              label="BMS Provisioning (S10)" 
+              active={currentView === 'bms_provisioning'} 
+              onClick={() => onNavigate('bms_provisioning')} 
             />
           )}
           <NavItem icon={Activity} label="Live Status" />
