@@ -15,7 +15,8 @@ import {
   CalendarClock,
   Wrench,
   ClipboardCheck,
-  Battery
+  Battery,
+  FileCheck
 } from 'lucide-react';
 
 interface NavItemProps {
@@ -87,6 +88,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
   const canSeePackAssembly = 
     role === UserRole.SYSTEM_ADMIN ||
     role === UserRole.OPERATOR ||
+    role === UserRole.SUPERVISOR ||
+    role === UserRole.MANAGEMENT;
+
+  const canSeePackReview = 
+    role === UserRole.SYSTEM_ADMIN ||
+    role === UserRole.QA_ENGINEER ||
     role === UserRole.SUPERVISOR ||
     role === UserRole.MANAGEMENT;
 
@@ -165,6 +172,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
               label="Pack Assembly (S7)" 
               active={currentView === 'pack_assembly'} 
               onClick={() => onNavigate('pack_assembly')} 
+            />
+          )}
+          {canSeePackReview && (
+             <NavItem 
+              icon={FileCheck} 
+              label="Pack Review (S8)" 
+              active={currentView === 'pack_review'} 
+              onClick={() => onNavigate('pack_review')} 
             />
           )}
           <NavItem icon={Activity} label="Live Status" />

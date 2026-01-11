@@ -16,4 +16,5 @@
 | **PP-015** | Primary Patch | S4 Manufacturing Batch Planning | **STABLE** | Added Batch Schedule List, Planning Details, and Line Readiness visualization. | 2026-01-11 21:30 (IST) |
 | **PP-020** | Primary Patch | S5 Module Assembly Workstation | **STABLE** | Added Operator Interface, Active Batch Banner, and Task Checklist. | 2026-01-11 21:45 (IST) |
 | **PP-021** | Primary Patch | S6 Module Quality Assurance | **STABLE** | Added QA Inspection Queue, Visual/Electrical Checklists, and Disposition. | 2026-01-11 22:00 (IST) |
-| **PP-022** | Primary Patch | S7 Pack Assembly Workstation | **IN-PROGRESS** | Added Pack Assembly UI, Enclosure & Harness tasks, and Finalization Controls. | 2026-01-11 22:15 (IST) |
+| **PP-022** | Primary Patch | S7 Pack Assembly Workstation | **STABLE** | Added Pack Assembly UI, Enclosure & Harness tasks, and Finalization Controls. | 2026-01-11 22:15 (IST) |
+| **PP-023** | Primary Patch | S8 Pack Review & Approval | **IN-PROGRESS** | Added EOL Review Queue, Summary View, and Approval Decisions. | 2026-01-11 22:30 (IST) |
