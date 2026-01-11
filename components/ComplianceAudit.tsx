@@ -50,6 +50,8 @@ export const ComplianceAudit: React.FC = () => {
     role === UserRole.SUSTAINABILITY || 
     role === UserRole.MANAGEMENT;
 
+  const isAuditor = role === UserRole.MANAGEMENT;
+
   if (!hasAccess) {
     return (
       <div className="h-full flex flex-col items-center justify-center text-slate-500">
@@ -62,6 +64,15 @@ export const ComplianceAudit: React.FC = () => {
 
   return (
     <div className="space-y-6 h-full flex flex-col animate-in fade-in duration-300">
+      
+      {/* Auditor Banner */}
+      {isAuditor && (
+        <div className="bg-slate-100 border-l-4 border-slate-500 text-slate-700 p-3 text-sm font-bold flex items-center gap-2">
+          <ShieldCheck size={16} />
+          <span>AUDITOR / REGULATOR – READ-ONLY VIEW</span>
+        </div>
+      )}
+
       {/* Standard Header */}
       <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
@@ -74,13 +85,15 @@ export const ComplianceAudit: React.FC = () => {
            </h1>
            <p className="text-slate-500 text-sm mt-1">Regulatory oversight, digital passport status, and risk registry.</p>
         </div>
-        <button 
-          className="bg-white border border-slate-300 text-slate-600 px-4 py-2 rounded-md font-medium text-sm flex items-center gap-2 hover:bg-slate-50"
-          disabled
-        >
-          <Download size={16} />
-          <span>Export Audit Report</span>
-        </button>
+        {!isAuditor && (
+          <button 
+            className="bg-white border border-slate-300 text-slate-600 px-4 py-2 rounded-md font-medium text-sm flex items-center gap-2 hover:bg-slate-50"
+            disabled
+          >
+            <Download size={16} />
+            <span>Export Audit Report</span>
+          </button>
+        )}
       </div>
 
       {/* Main Grid */}

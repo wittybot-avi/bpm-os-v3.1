@@ -12,7 +12,8 @@ import {
   Scale, 
   FileCheck, 
   AlertTriangle,
-  ArrowRight
+  ArrowRight,
+  ShieldCheck
 } from 'lucide-react';
 
 // Mock Data Types
@@ -68,8 +69,11 @@ export const RecyclingRecovery: React.FC = () => {
     role === UserRole.SERVICE || 
     role === UserRole.MANAGEMENT;
 
-  // Service Engineer is Read-Only in this context (unlike S15 where they are active)
-  const isReadOnly = role === UserRole.MANAGEMENT || role === UserRole.SERVICE;
+  // Auditor is strictly read-only
+  const isAuditor = role === UserRole.MANAGEMENT;
+  // Service Engineer is read-only in this context as per previous logic (but can see buttons disabled usually)
+  // For this patch, we enforce hidden buttons for Auditor specifically.
+  const isReadOnly = isAuditor || role === UserRole.SERVICE;
 
   if (!hasAccess) {
     return (
@@ -83,6 +87,15 @@ export const RecyclingRecovery: React.FC = () => {
 
   return (
     <div className="space-y-6 h-full flex flex-col animate-in fade-in duration-300">
+      
+      {/* Auditor Banner */}
+      {isAuditor && (
+        <div className="bg-slate-100 border-l-4 border-slate-500 text-slate-700 p-3 text-sm font-bold flex items-center gap-2">
+          <ShieldCheck size={16} />
+          <span>AUDITOR / REGULATOR – READ-ONLY VIEW</span>
+        </div>
+      )}
+
       {/* Standard Header */}
       <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
@@ -185,53 +198,55 @@ export const RecyclingRecovery: React.FC = () => {
 
           <div className="flex-1 overflow-y-auto p-6 space-y-8">
             
-            {/* 1. Sorting Actions */}
-            <section>
-                <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <Factory size={16} className="text-brand-500" />
-                    Inspection & Sorting (Track -> Trace)
-                </h3>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                    <button 
-                        disabled={isReadOnly || true} 
-                        className="p-4 rounded-lg border border-green-200 bg-green-50 hover:bg-green-100 transition-colors flex flex-col items-center text-center gap-2 opacity-80 cursor-not-allowed"
-                    >
-                        <RotateCcw size={24} className="text-green-600" />
-                        <span className="text-sm font-bold text-green-900">Reuse</span>
-                        <span className="text-[10px] text-green-700">2nd Life Application</span>
-                    </button>
+            {/* 1. Sorting Actions - Hidden for Auditor */}
+            {!isAuditor && (
+              <section>
+                  <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2">
+                      <Factory size={16} className="text-brand-500" />
+                      Inspection & Sorting (Track -> Trace)
+                  </h3>
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                      <button 
+                          disabled={true} 
+                          className="p-4 rounded-lg border border-green-200 bg-green-50 hover:bg-green-100 transition-colors flex flex-col items-center text-center gap-2 opacity-80 cursor-not-allowed"
+                      >
+                          <RotateCcw size={24} className="text-green-600" />
+                          <span className="text-sm font-bold text-green-900">Reuse</span>
+                          <span className="text-[10px] text-green-700">2nd Life Application</span>
+                      </button>
 
-                    <button 
-                         disabled={isReadOnly || true} 
-                         className="p-4 rounded-lg border border-blue-200 bg-blue-50 hover:bg-blue-100 transition-colors flex flex-col items-center text-center gap-2 opacity-80 cursor-not-allowed"
-                    >
-                        <Battery size={24} className="text-blue-600" />
-                        <span className="text-sm font-bold text-blue-900">Refurbish</span>
-                        <span className="text-[10px] text-blue-700">Module Replacement</span>
-                    </button>
+                      <button 
+                          disabled={true} 
+                          className="p-4 rounded-lg border border-blue-200 bg-blue-50 hover:bg-blue-100 transition-colors flex flex-col items-center text-center gap-2 opacity-80 cursor-not-allowed"
+                      >
+                          <Battery size={24} className="text-blue-600" />
+                          <span className="text-sm font-bold text-blue-900">Refurbish</span>
+                          <span className="text-[10px] text-blue-700">Module Replacement</span>
+                      </button>
 
-                    <button 
-                         disabled={isReadOnly || true} 
-                         className="p-4 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 transition-colors flex flex-col items-center text-center gap-2 opacity-80 cursor-not-allowed"
-                    >
-                        <Recycle size={24} className="text-slate-600" />
-                        <span className="text-sm font-bold text-slate-900">Recycle</span>
-                        <span className="text-xs text-slate-500">Material Recovery</span>
-                    </button>
+                      <button 
+                          disabled={true} 
+                          className="p-4 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 transition-colors flex flex-col items-center text-center gap-2 opacity-80 cursor-not-allowed"
+                      >
+                          <Recycle size={24} className="text-slate-600" />
+                          <span className="text-sm font-bold text-slate-900">Recycle</span>
+                          <span className="text-xs text-slate-500">Material Recovery</span>
+                      </button>
 
-                    <button 
-                         disabled={isReadOnly || true} 
-                         className="p-4 rounded-lg border border-red-200 bg-red-50 hover:bg-red-100 transition-colors flex flex-col items-center text-center gap-2 opacity-80 cursor-not-allowed"
-                    >
-                        <Ban size={24} className="text-red-600" />
-                        <span className="text-sm font-bold text-red-900">Quarantine</span>
-                        <span className="text-xs text-red-700">Hazardous / Damaged</span>
-                    </button>
-                </div>
-                 <p className="text-center text-xs text-slate-400 mt-3">
-                    Disposition actions are disabled in Frontend-Only Demo Mode.
-                </p>
-            </section>
+                      <button 
+                          disabled={true} 
+                          className="p-4 rounded-lg border border-red-200 bg-red-50 hover:bg-red-100 transition-colors flex flex-col items-center text-center gap-2 opacity-80 cursor-not-allowed"
+                      >
+                          <Ban size={24} className="text-red-600" />
+                          <span className="text-sm font-bold text-red-900">Quarantine</span>
+                          <span className="text-xs text-red-700">Hazardous / Damaged</span>
+                      </button>
+                  </div>
+                  <p className="text-center text-xs text-slate-400 mt-3">
+                      Disposition actions are disabled in Frontend-Only Demo Mode.
+                  </p>
+              </section>
+            )}
 
             {/* 2. Material Recovery Snapshot */}
             <section className="bg-slate-50 rounded-lg p-5 border border-slate-200">

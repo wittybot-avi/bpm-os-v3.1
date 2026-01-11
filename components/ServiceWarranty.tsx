@@ -14,7 +14,8 @@ import {
   FileWarning, 
   Wrench,
   CheckCircle2,
-  Signal
+  Signal,
+  ShieldCheck
 } from 'lucide-react';
 
 // Mock Data Types
@@ -98,7 +99,10 @@ export const ServiceWarranty: React.FC = () => {
     role === UserRole.SERVICE || 
     role === UserRole.MANAGEMENT;
 
-  const isReadOnly = role === UserRole.MANAGEMENT;
+  const isAuditor = role === UserRole.MANAGEMENT;
+  // Management (Auditor) is read-only.
+  // Service Engineer is read-write but locked in backend-demo mode.
+  const isReadOnly = isAuditor; 
 
   if (!hasAccess) {
     return (
@@ -112,6 +116,15 @@ export const ServiceWarranty: React.FC = () => {
 
   return (
     <div className="space-y-6 h-full flex flex-col animate-in fade-in duration-300">
+      
+      {/* Auditor Banner */}
+      {isAuditor && (
+        <div className="bg-slate-100 border-l-4 border-slate-500 text-slate-700 p-3 text-sm font-bold flex items-center gap-2">
+          <ShieldCheck size={16} />
+          <span>AUDITOR / REGULATOR – READ-ONLY VIEW</span>
+        </div>
+      )}
+
       {/* Standard Header */}
       <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
@@ -285,31 +298,33 @@ export const ServiceWarranty: React.FC = () => {
               </div>
             </section>
 
-             {/* 3. Actions */}
-            <section className="pt-4 border-t border-slate-100">
-                <div className="flex gap-4">
-                    <button 
-                        disabled={isReadOnly || true} 
-                        className="flex-1 bg-white border border-slate-300 text-slate-500 py-3 rounded-md font-medium text-sm flex items-center justify-center gap-2 opacity-60 cursor-not-allowed"
-                        title="Demo Mode: Backend locked"
-                    >
-                        <FileWarning size={16} />
-                        Raise Warranty Claim
-                    </button>
-                    
-                    <button 
-                        disabled={isReadOnly || true} 
-                        className="flex-1 bg-brand-600 text-white py-3 rounded-md font-medium text-sm flex items-center justify-center gap-2 opacity-50 cursor-not-allowed shadow-sm"
-                        title="Demo Mode: Backend locked"
-                    >
-                        <Zap size={16} />
-                        Register Service Event
-                    </button>
-                </div>
-                 <p className="text-center text-xs text-slate-400 mt-3">
-                    Service actions are disabled in Frontend-Only Demo Mode.
-                </p>
-            </section>
+             {/* 3. Actions - Hidden for Auditor */}
+            {!isAuditor && (
+              <section className="pt-4 border-t border-slate-100">
+                  <div className="flex gap-4">
+                      <button 
+                          className="flex-1 bg-white border border-slate-300 text-slate-500 py-3 rounded-md font-medium text-sm flex items-center justify-center gap-2 opacity-60 cursor-not-allowed"
+                          disabled={true}
+                          title="Demo Mode: Backend locked"
+                      >
+                          <FileWarning size={16} />
+                          Raise Warranty Claim
+                      </button>
+                      
+                      <button 
+                          className="flex-1 bg-brand-600 text-white py-3 rounded-md font-medium text-sm flex items-center justify-center gap-2 opacity-50 cursor-not-allowed shadow-sm"
+                          disabled={true}
+                          title="Demo Mode: Backend locked"
+                      >
+                          <Zap size={16} />
+                          Register Service Event
+                      </button>
+                  </div>
+                   <p className="text-center text-xs text-slate-400 mt-3">
+                      Service actions are disabled in Frontend-Only Demo Mode.
+                  </p>
+              </section>
+            )}
             
           </div>
         </div>

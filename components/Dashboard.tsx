@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext, UserRole } from '../types';
 import { 
   Activity, 
   Battery, 
@@ -11,10 +12,14 @@ import {
   AlertTriangle,
   CheckCircle2,
   Clock,
-  Layers
+  Layers,
+  ShieldCheck
 } from 'lucide-react';
 
 export const Dashboard: React.FC = () => {
+  const { role } = useContext(UserContext);
+  const isAuditor = role === UserRole.MANAGEMENT;
+
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
       
@@ -30,9 +35,17 @@ export const Dashboard: React.FC = () => {
            </h1>
            <p className="text-slate-500 text-sm mt-1">High-level visibility into manufacturing, assets, and lifecycle custody.</p>
         </div>
-        <div className="bg-slate-100 text-slate-600 px-3 py-1 rounded text-xs font-bold border border-slate-200 uppercase">
-          Read-Only View
-        </div>
+        
+        {isAuditor ? (
+          <div className="bg-slate-100 text-slate-700 px-4 py-1.5 rounded text-xs font-bold border border-slate-300 uppercase flex items-center gap-2">
+            <ShieldCheck size={14} />
+            Auditor / Regulator – Read-Only View
+          </div>
+        ) : (
+          <div className="bg-slate-100 text-slate-600 px-3 py-1 rounded text-xs font-bold border border-slate-200 uppercase">
+            Read-Only View
+          </div>
+        )}
       </div>
 
       {/* A1: Manufacturing Overview */}
