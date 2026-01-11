@@ -13,6 +13,7 @@ import { PackAssembly } from './components/PackAssembly';
 import { PackReview } from './components/PackReview';
 import { BatteryRegistry } from './components/BatteryRegistry';
 import { BMSProvisioning } from './components/BMSProvisioning';
+import { FinishedGoods } from './components/FinishedGoods';
 import { UserRole, UserContextType, UserContext, NavView } from './types';
 import { canAccess } from './utils/rbac';
 
@@ -51,6 +52,7 @@ const App: React.FC = () => {
           {currentView === 'pack_review' && <PackReview />}
           {currentView === 'battery_registry' && <BatteryRegistry />}
           {currentView === 'bms_provisioning' && <BMSProvisioning />}
+          {currentView === 'finished_goods' && <FinishedGoods />}
         </Layout>
       </UserContext.Provider>
     </ErrorBoundary>

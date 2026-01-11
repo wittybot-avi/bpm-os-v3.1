@@ -19,4 +19,5 @@
 | **PP-022** | Primary Patch | S7 Pack Assembly Workstation | **STABLE** | Added Pack Assembly UI, Enclosure & Harness tasks, and Finalization Controls. | 2026-01-11 22:15 (IST) |
 | **PP-023** | Primary Patch | S8 Pack Review & Approval | **STABLE** | Added EOL Review Queue, Summary View, and Approval Decisions. | 2026-01-11 22:30 (IST) |
 | **PP-024** | Primary Patch | S9 Battery Registry | **STABLE** | Added Read-Only System Registry, Digital Twin View, and Compliance Readiness. | 2026-01-11 22:45 (IST) |
-| **PP-025** | Primary Patch | S10 BMS Provisioning | **IN-PROGRESS** | Added BMS Identity Binding, Firmware Selection, and Provisioning Controls. | 2026-01-11 23:00 (IST) |
+| **PP-025** | Primary Patch | S10 BMS Provisioning | **STABLE** | Added BMS Identity Binding, Firmware Selection, and Provisioning Controls. | 2026-01-11 23:00 (IST) |
+| **PP-030** | Primary Patch | S11 Finished Goods Inventory | **IN-PROGRESS** | Added Warehouse Stock List, Location Detail, and Dispatch Actions. | 2026-01-11 23:15 (IST) |
