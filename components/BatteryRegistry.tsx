@@ -13,7 +13,13 @@ import {
   Cpu, 
   Box, 
   Battery,
-  History
+  History,
+  UserCheck,
+  Scale,
+  Recycle,
+  Factory,
+  Truck,
+  Users
 } from 'lucide-react';
 
 // Mock Data Types
@@ -35,6 +41,19 @@ interface RegistryPack {
     weight: string;
     warranty: string;
   };
+  custodian: {
+    type: 'Manufacturer' | 'Logistics' | 'Customer' | 'Recycler';
+    name: string;
+    since: string;
+    responsibilities: string[];
+    basis: 'Manufacturing' | 'Dispatch' | 'Service' | 'Recycling';
+  };
+  material: {
+    chemistry: string;
+    mass: string;
+    eprEligible: boolean;
+    recyclingStatus: string;
+  };
 }
 
 // Mock Data
@@ -53,6 +72,19 @@ const REGISTRY_DATA: RegistryPack[] = [
       energy: '2.56 kWh',
       weight: '18.4 kg',
       warranty: '3 Years / 1500 Cycles'
+    },
+    custodian: {
+        type: 'Manufacturer',
+        name: 'Gigafactory 1 - Warehouse',
+        since: '2026-01-11 10:00',
+        responsibilities: ['Warranty', 'Safety'],
+        basis: 'Manufacturing'
+    },
+    material: {
+        chemistry: 'LFP (Lithium Iron Phosphate)',
+        mass: '18.4 kg',
+        eprEligible: true,
+        recyclingStatus: 'Virgin Material'
     }
   },
   {
@@ -69,6 +101,19 @@ const REGISTRY_DATA: RegistryPack[] = [
       energy: '2.56 kWh',
       weight: '18.5 kg',
       warranty: '3 Years / 1500 Cycles'
+    },
+    custodian: {
+        type: 'Logistics',
+        name: 'BlueDart Express',
+        since: '2026-01-11 14:30',
+        responsibilities: ['Transport Safety'],
+        basis: 'Dispatch'
+    },
+    material: {
+        chemistry: 'LFP (Lithium Iron Phosphate)',
+        mass: '18.5 kg',
+        eprEligible: true,
+        recyclingStatus: 'Virgin Material'
     }
   },
   {
@@ -85,6 +130,19 @@ const REGISTRY_DATA: RegistryPack[] = [
       energy: '75.0 kWh',
       weight: '420 kg',
       warranty: '8 Years / 3000 Cycles'
+    },
+    custodian: {
+        type: 'Manufacturer',
+        name: 'Gigafactory 1 - QC Hold Area',
+        since: '2026-01-11 09:15',
+        responsibilities: ['Containment', 'Safety'],
+        basis: 'Manufacturing'
+    },
+    material: {
+        chemistry: 'NMC (Nickel Manganese Cobalt)',
+        mass: '420 kg',
+        eprEligible: true,
+        recyclingStatus: 'Virgin Material'
     }
   }
 ];
@@ -116,7 +174,7 @@ export const BatteryRegistry: React.FC = () => {
       <div className="flex items-center justify-between shrink-0 border-b border-slate-200 pb-4">
         <div>
            <div className="flex items-center gap-1 text-xs text-slate-500 mb-1 font-medium uppercase tracking-wider">
-              Traceability <span className="text-slate-300">/</span> Digital Twin
+              Trace & Identity <span className="text-slate-300">/</span> Digital Twin
            </div>
            <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
              <Database className="text-brand-600" size={24} />
@@ -223,63 +281,118 @@ export const BatteryRegistry: React.FC = () => {
 
           <div className="flex-1 overflow-y-auto p-6 space-y-8">
             
-            {/* 1. Manufacturing Lineage */}
-            <section>
-              <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2">
-                <GitCommit size={16} className="text-brand-500" />
-                Manufacturing Lineage
-              </h3>
-              <div className="flex items-center gap-2 text-xs">
-                 <div className="flex flex-col items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold">S3</div>
-                    <span className="text-slate-500">Inbound</span>
-                 </div>
-                 <div className="h-0.5 w-8 bg-green-200"></div>
-                 <div className="flex flex-col items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold">S5</div>
-                    <span className="text-slate-500">Modules</span>
-                 </div>
-                 <div className="h-0.5 w-8 bg-green-200"></div>
-                 <div className="flex flex-col items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold">S7</div>
-                    <span className="text-slate-500">Pack</span>
-                 </div>
-                 <div className="h-0.5 w-8 bg-green-200"></div>
-                 <div className="flex flex-col items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold">S8</div>
-                    <span className="text-slate-500">Review</span>
-                 </div>
-              </div>
-            </section>
+            {/* --- SECTION: ASSET TRACKING --- */}
+            <div className="border-l-4 border-blue-500 pl-4">
+                <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <Battery size={16} className="text-blue-500" />
+                    Asset Tracking Scope
+                </h3>
 
-            {/* 2. Component Traceability */}
-            <section>
-              <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2">
-                <Cpu size={16} className="text-brand-500" />
-                Component Traceability
-              </h3>
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div className="p-3 bg-slate-50 rounded border border-slate-100">
-                   <div className="text-xs text-slate-400 mb-1">BMS Serial Number</div>
-                   <div className="font-mono font-medium text-slate-800">{selectedPack.details.bmsSerial}</div>
+                {/* Custodian of Record Panel */}
+                <div className="bg-slate-50 rounded-lg border border-slate-200 p-4 mb-4">
+                    <div className="flex justify-between items-center mb-3 border-b border-slate-200 pb-2">
+                        <span className="text-xs font-bold text-slate-500 uppercase flex items-center gap-2">
+                            <UserCheck size={14} /> Custodian of Record
+                        </span>
+                        <span className="text-[10px] text-slate-400 bg-white border border-slate-200 px-2 py-0.5 rounded">System-of-Record View (Demo)</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <div className="text-xs text-slate-400 mb-1">Current Custodian</div>
+                            <div className="font-bold text-slate-800">{selectedPack.custodian.name}</div>
+                            <div className="text-xs text-slate-500 mt-0.5">{selectedPack.custodian.type}</div>
+                        </div>
+                        <div>
+                            <div className="text-xs text-slate-400 mb-1">Custody Since</div>
+                            <div className="font-mono text-slate-800">{selectedPack.custodian.since}</div>
+                            <div className="text-xs text-slate-500 mt-0.5">Basis: {selectedPack.custodian.basis}</div>
+                        </div>
+                        <div className="col-span-2 mt-2">
+                            <div className="text-xs text-slate-400 mb-1">Regulatory Responsibility</div>
+                            <div className="flex gap-2">
+                                {selectedPack.custodian.responsibilities.map((resp, i) => (
+                                    <span key={i} className="text-[10px] px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full font-bold uppercase border border-blue-200">
+                                        {resp}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="p-3 bg-slate-50 rounded border border-slate-100">
-                   <div className="text-xs text-slate-400 mb-1">Firmware Version</div>
-                   <div className="font-mono font-medium text-slate-800">{selectedPack.details.firmware}</div>
-                </div>
-                <div className="p-3 bg-slate-50 rounded border border-slate-100">
-                   <div className="text-xs text-slate-400 mb-1">Modules Installed</div>
-                   <div className="font-mono font-medium text-slate-800">4x LFP-48V (Ref: M-042..M-046)</div>
-                </div>
-                <div className="p-3 bg-slate-50 rounded border border-slate-100">
-                   <div className="text-xs text-slate-400 mb-1">Warranty Terms</div>
-                   <div className="font-medium text-slate-800">{selectedPack.details.warranty}</div>
-                </div>
-              </div>
-            </section>
 
-             {/* 3. Compliance Readiness */}
-            <section>
+                {/* Custody Transition Timeline */}
+                <div className="mb-6">
+                    <div className="text-xs font-bold text-slate-400 mb-2">CUSTODY LIFECYCLE</div>
+                    <div className="flex items-center justify-between text-[10px] text-slate-500 relative">
+                        {/* Track Line */}
+                        <div className="absolute top-1.5 left-0 w-full h-0.5 bg-slate-200 -z-10"></div>
+                        
+                        <div className="flex flex-col items-center gap-1 bg-white px-1 z-10">
+                            <div className={`w-3 h-3 rounded-full border-2 ${selectedPack.status !== 'Hold' ? 'bg-brand-500 border-brand-500' : 'bg-slate-300 border-slate-300'}`}></div>
+                            <span className="font-medium text-brand-700">Mfg Complete</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-1 bg-white px-1 z-10">
+                            <div className={`w-3 h-3 rounded-full border-2 ${selectedPack.custodian.type === 'Manufacturer' || selectedPack.status === 'Dispatched' ? 'bg-brand-500 border-brand-500' : 'bg-white border-slate-300'}`}></div>
+                            <span>Warehouse</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-1 bg-white px-1 z-10">
+                            <div className={`w-3 h-3 rounded-full border-2 ${selectedPack.status === 'Dispatched' ? 'bg-brand-500 border-brand-500' : 'bg-white border-slate-300'}`}></div>
+                            <span>In Transit</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-1 bg-white px-1 z-10">
+                            <div className="w-3 h-3 rounded-full border-2 border-slate-300 bg-white"></div>
+                            <span>Customer</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-1 bg-white px-1 z-10">
+                            <div className="w-3 h-3 rounded-full border-2 border-slate-300 bg-white"></div>
+                            <span>Recycling</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Component Traceability (Integrated) */}
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="p-3 bg-white rounded border border-slate-200">
+                        <div className="text-xs text-slate-400 mb-1">BMS Serial Number</div>
+                        <div className="font-mono font-medium text-slate-800">{selectedPack.details.bmsSerial}</div>
+                    </div>
+                    <div className="p-3 bg-white rounded border border-slate-200">
+                        <div className="text-xs text-slate-400 mb-1">Modules Installed</div>
+                        <div className="font-mono font-medium text-slate-800">4x LFP-48V (Ref: M-042..M-046)</div>
+                    </div>
+                </div>
+            </div>
+
+            {/* --- SECTION: MATERIAL TRACKING --- */}
+            <div className="border-l-4 border-green-500 pl-4 pt-2">
+                <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <Recycle size={16} className="text-green-500" />
+                    Material Tracking Scope
+                </h3>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                       <div className="text-xs text-slate-400 mb-1">Chemistry Category</div>
+                       <div className="font-medium text-slate-800">{selectedPack.material.chemistry}</div>
+                    </div>
+                    <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                       <div className="text-xs text-slate-400 mb-1">Net Mass</div>
+                       <div className="font-mono font-medium text-slate-800">{selectedPack.material.mass}</div>
+                    </div>
+                    <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                       <div className="text-xs text-slate-400 mb-1">EPR Relevance</div>
+                       <div className={`font-bold ${selectedPack.material.eprEligible ? 'text-green-600' : 'text-slate-600'}`}>
+                           {selectedPack.material.eprEligible ? 'YES - Reportable' : 'NO'}
+                       </div>
+                    </div>
+                    <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                       <div className="text-xs text-slate-400 mb-1">Recycling Status</div>
+                       <div className="font-medium text-slate-800">{selectedPack.material.recyclingStatus}</div>
+                    </div>
+                </div>
+            </div>
+
+             {/* Compliance Readiness (Shared) */}
+            <section className="pt-4 border-t border-slate-100">
               <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2">
                 <FileBadge size={16} className="text-brand-500" />
                 Compliance & Digital Passport

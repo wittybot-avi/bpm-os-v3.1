@@ -12,7 +12,10 @@ import {
   BarChart4,
   CheckCircle2,
   XCircle,
-  Flag
+  Flag,
+  Battery,
+  Recycle,
+  Scale
 } from 'lucide-react';
 
 // Mock Data for Dashboard
@@ -128,6 +131,61 @@ export const ComplianceAudit: React.FC = () => {
               <div className="text-2xl font-bold text-slate-800">{KPI_DATA.riskCount}</div>
               <div className="text-xs text-slate-400 mt-1">Flagged for Review</div>
            </div>
+        </div>
+
+        {/* Regulatory Tracking Scope Panel */}
+        <div className="col-span-12 bg-white rounded-lg shadow-sm border border-industrial-border overflow-hidden">
+            <div className="p-4 border-b border-slate-100 bg-slate-50">
+               <h3 className="font-semibold text-slate-700 flex items-center gap-2">
+                 <ShieldCheck size={16} />
+                 Regulatory Tracking Scope
+               </h3>
+            </div>
+            <div className="grid grid-cols-2 divide-x divide-slate-100">
+                {/* Asset Tracking Summary */}
+                <div className="p-6">
+                    <div className="flex items-center gap-2 mb-4 text-blue-700">
+                        <Battery size={20} />
+                        <h4 className="font-bold text-sm uppercase tracking-wider">Asset-Level Compliance</h4>
+                    </div>
+                    <div className="space-y-3">
+                        <div className="flex justify-between text-sm">
+                            <span className="text-slate-500">Traceability Basis</span>
+                            <span className="font-medium text-slate-800">Unique Digital ID (UID)</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                            <span className="text-slate-500">Ownership Model</span>
+                            <span className="font-medium text-slate-800">Custodian-Based</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                            <span className="text-slate-500">Warranty Liability</span>
+                            <span className="font-medium text-slate-800">Per-Unit Tracking</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Material Tracking Summary */}
+                <div className="p-6">
+                    <div className="flex items-center gap-2 mb-4 text-green-700">
+                        <Recycle size={20} />
+                        <h4 className="font-bold text-sm uppercase tracking-wider">Material-Level Compliance</h4>
+                    </div>
+                    <div className="space-y-3">
+                        <div className="flex justify-between text-sm">
+                            <span className="text-slate-500">Accounting Basis</span>
+                            <span className="font-medium text-slate-800">Aggregated Mass (kg)</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                            <span className="text-slate-500">EPR Obligation</span>
+                            <span className="font-medium text-slate-800">Producer Responsibility</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                            <span className="text-slate-500">Recycling Target</span>
+                            <span className="font-medium text-slate-800">Material Recovery Rate %</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         {/* Bottom Left: Risk Registry */}
