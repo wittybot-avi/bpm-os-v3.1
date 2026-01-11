@@ -18,7 +18,8 @@ import {
   Battery,
   FileCheck,
   Database,
-  PackageCheck
+  PackageCheck,
+  Package
 } from 'lucide-react';
 
 interface NavItemProps {
@@ -115,6 +116,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
     role === UserRole.SYSTEM_ADMIN ||
     role === UserRole.STORES ||
     role === UserRole.LOGISTICS ||
+    role === UserRole.MANAGEMENT;
+
+  const canSeePackaging = 
+    role === UserRole.SYSTEM_ADMIN ||
+    role === UserRole.STORES ||
+    role === UserRole.LOGISTICS ||
+    role === UserRole.SUPERVISOR ||
     role === UserRole.MANAGEMENT;
 
   return (
@@ -224,6 +232,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onNavigate }) => 
               label="Finished Goods (S11)" 
               active={currentView === 'finished_goods'} 
               onClick={() => onNavigate('finished_goods')} 
+            />
+          )}
+          {canSeePackaging && (
+            <NavItem 
+              icon={Package} 
+              label="Packaging (S12)" 
+              active={currentView === 'packaging_aggregation'} 
+              onClick={() => onNavigate('packaging_aggregation')} 
             />
           )}
           <NavItem icon={Activity} label="Live Status" />
